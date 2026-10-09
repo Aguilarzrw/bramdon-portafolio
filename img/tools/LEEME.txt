@@ -1,0 +1,5 @@
+Logos de herramientas (opcional). Por defecto la pagina intenta cargar los iconos
+desde internet; si quieres usar los oficiales, guardalos aqui como .svg o .png:
+
+premiere-pro  capcut  photoshop  google-sheets  trello
+chatgpt  higgsfield  flow  claude  gemini

@@ -1,0 +1,10 @@
+Logos de las marcas. La pagina los detecta sola.
+Guarda cada archivo aqui con este nombre exacto y extension .svg o .png:
+
+bera-motorcycles   bera-cars       bera-service   bera-parts
+bera-wave          morini          zontes         segway
+maxglow            miss-venezuela  jc-designs     magros
+macu-macu          ferre-jumbo     luppro         verabell
+
+Recomendado: fondo transparente, version clara o blanca, unos 300 px de ancho.
+Si falta un logo, la tarjeta muestra un monograma.
