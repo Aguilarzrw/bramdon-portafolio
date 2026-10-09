@@ -149,7 +149,7 @@
   .hero { min-height: 100vh; min-height: 100svh; position: relative; isolation: isolate; display: flex; align-items: flex-end; overflow: hidden; padding: 120px 0 clamp(64px, 11vh, 110px); }
   .hero-media { position: absolute; inset: -4% 0; z-index: -3; will-change: transform; }
   .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
-  .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(to top, rgba(0,0,0,.95) 6%, rgba(0,0,0,.5) 55%, rgba(0,0,0,.65) 100%); }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(to top, #07090d 2%, rgba(7,9,13,.55) 45%, rgba(0,0,0,.6) 100%); }
   .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(55% 55% at 85% 15%, rgba(58,95,208,.28), transparent 70%); }
   .hero .wrap { will-change: transform, opacity; }
   .rec { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 80px); right: 24px; font-family: var(--display); font-size: .78rem; font-weight: 500; color: var(--mist); display: flex; align-items: center; gap: 10px; font-variant-numeric: tabular-nums; }
@@ -227,6 +227,62 @@
   .card .shot .yt-badge { position: absolute; left: 12px; top: 12px; z-index: 2; padding: 4px 9px; background: rgba(0,0,0,.65); font-family: var(--display); font-weight: 600; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
   .ytframe { position: relative; aspect-ratio: 16 / 9; background: #000; }
   .ytframe iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+
+  /* ---------- Estructura: eyebrows, pilares y videos ---------- */
+  .eyebrow { display: block; font-family: var(--display); font-weight: 600; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--blue-soft); margin-bottom: 14px; }
+  .hero-eyebrow { margin-bottom: 18px; animation: rise 1s var(--ease) .6s both; }
+  h2 em { font-style: normal; color: var(--blue-soft); }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--steel); }
+  .trio > div { padding: 36px 32px 44px 0; }
+  .trio > div + div { padding-left: 32px; border-left: 1px solid var(--steel); }
+  .trio .n { font-family: var(--display); font-weight: 700; font-size: .75rem; letter-spacing: .14em; color: var(--blue-soft); }
+  .trio h3 { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 10px 0 4px; }
+  .trio .rl { color: var(--white); font-family: var(--display); font-weight: 500; font-size: .86rem; margin-bottom: 10px; }
+  .trio p:not(.rl) { color: var(--mist); font-size: .9rem; line-height: 1.6; max-width: 36ch; }
+  @media (max-width: 860px) { .trio { grid-template-columns: 1fr; } .trio > div, .trio > div + div { padding: 28px 0; border-left: 0; } .trio > div + div { border-top: 1px solid var(--steel); } }
+
+  .vlaunch { margin: 56px 0 clamp(64px, 9vw, 104px); }
+  .vhead h3, .gal-head h3 { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 2.6vw, 1.8rem); letter-spacing: -.01em; }
+  .vhead .cnt { color: var(--mist); font-size: .88rem; margin: 6px 0 24px; }
+  .vstage { display: grid; grid-template-columns: 1.9fr 1fr; gap: 28px; align-items: end; }
+  .vmain { position: relative; aspect-ratio: 16 / 9; background: var(--graphite); overflow: hidden; }
+  .vplay { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .vplay img, .vmain iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+  .vplay img { transition: transform .8s var(--ease), filter .4s; }
+  .vplay:hover img { transform: scale(1.03); filter: brightness(.85); }
+  .vplay .play, .vmain .play { position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; background: rgba(29,63,168,.94); transition: transform .3s var(--ease); }
+  .vplay .play::after { content: ""; position: absolute; left: 29px; top: 22px; border-left: 21px solid #fff; border-top: 14px solid transparent; border-bottom: 14px solid transparent; }
+  .vplay:hover .play { transform: scale(1.1); }
+  .vinfo .role { display: block; color: var(--blue-soft); font-family: var(--display); font-weight: 600; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+  .vinfo h4 { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.15; margin: 8px 0 12px; letter-spacing: -.01em; }
+  .vinfo p { color: var(--mist); font-size: .95rem; }
+  .vlink { display: inline-block; margin-top: 18px; font-family: var(--display); font-weight: 600; font-size: .9rem; color: var(--blue-soft); border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  .vrail { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 22px; }
+  .vthumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--graphite); outline-offset: 3px; border: 1px solid var(--steel); transition: border-color .3s, transform .4s var(--ease); }
+  .vthumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .7; transition: opacity .3s, transform .6s var(--ease); }
+  .vthumb:hover img, .vthumb.on img { opacity: 1; }
+  .vthumb:hover img { transform: scale(1.06); }
+  .vthumb.on { border-color: var(--blue-soft); }
+  .vthumb .ttl { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 9px 8px; font-family: var(--display); font-weight: 600; font-size: .72rem; line-height: 1.25; background: linear-gradient(transparent, rgba(0,0,0,.9)); }
+  @media (max-width: 860px) { .vstage { grid-template-columns: 1fr; gap: 20px; } .vrail { grid-template-columns: repeat(2, 1fr); } .vrail .vthumb:last-child { grid-column: span 2; } }
+  .gal-head { margin-bottom: 8px; }
+  .gal-head .lead { margin: 6px 0 22px; }
+  .card.off { display: none; }
+  .soon-head { margin: 64px 0 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; }
+  .soon-head h3 { font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+  .soon-head p { color: var(--mist); font-size: .88rem; }
+  .cards.soon-grid { grid-template-columns: repeat(3, 1fr); gap: 32px 20px; }
+  .soon-grid .card .shot { aspect-ratio: 16 / 10; }
+  .soon-grid .info h3 { font-size: 1rem; }
+  .soon-grid .txt { font-size: .85rem; }
+  @media (max-width: 1000px) { .cards.soon-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .cards.soon-grid { grid-template-columns: 1fr; } }
+
+
+  /* ---------- Transiciones entre secciones ---------- */
+  section + section { box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+  .metrics { box-shadow: none; }
 
   /* ---------- Proyectos ---------- */
   .brands { background: var(--ink); }
@@ -393,9 +449,9 @@
   <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   <ul id="menu">
     <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#marcas">Marcas</a></li>
-    <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#perfil">Perfil</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#marcas">Marcas</a></li>
     <li><a href="#contacto">Contacto</a></li>
     <li><a class="nav-cta" href="https://wa.me/584124824488?text=Hola%20Bramdon%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener">Contactar ya</a></li>
   </ul>
@@ -409,6 +465,7 @@
   </div>
   <div class="rec" aria-hidden="true"><i></i><span id="tc">00:00:00:00</span></div>
   <div class="wrap" id="heroContent">
+    <p class="eyebrow hero-eyebrow">Especialidades audiovisuales &amp; publicidad (IUTA)</p>
     <h1 aria-label="Bramdon Aguilar"><span class="line" data-split>Bramdon</span><span class="line" data-split>Aguilar</span></h1>
     <p class="role">Creative Producer <span>·</span> <span class="rot" id="rot" aria-live="off"><span class="on">Coordinador de producción</span><span>Operador de cámara</span><span>Asistente de cámara</span><span>Editor de video</span></span></p>
     <p class="tagline">Transformando ideas de marca en experiencias audiovisuales de alto impacto.</p>
@@ -432,16 +489,76 @@
       <li data-reveal><strong data-count="100" data-suffix="+">100+</strong><span>Spots publicitarios y videos realizados</span></li>
       <li data-reveal><strong data-count="100" data-suffix="%">100%</strong><span>Cumplimiento de pautas y entregas semanales</span></li>
     </ul>
+    <div class="trio" data-stagger>
+      <div data-reveal><span class="n">01</span><h3>Formación &amp; coordinación</h3><p class="rl">Coordinador Audiovisual &amp; Publicista (IUTA)</p><p>Planificación de rodajes, liderazgo de equipos técnicos en set, Diplomado en Meta Ads y Community Manager Pro.</p></div>
+      <div data-reveal><span class="n">02</span><h3>Rodaje &amp; cámara en set</h3><p class="rl">Operador de Cámara &amp; Asistente de Cámara</p><p>Operación directa de cámaras Cinema y Mirrorless, asistencia de cámara: ópticas, foco, gimbals Ronin, iluminación y audio en locación.</p></div>
+      <div data-reveal><span class="n">03</span><h3>Postproducción &amp; montaje</h3><p class="rl">Editor de Video Comercial &amp; Reels</p><p>Edición profesional en Adobe Premiere Pro y CapCut: spots de lanzamiento, aftermovies, corrección de color y piezas de alto impacto.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="projects" id="proyectos">
   <div class="wrap">
-    <h2 data-reveal>Proyectos</h2>
-    <p class="lead" data-reveal>Toca un proyecto para ver sus fotos y videos. En computadora, pasa el mouse para ver un adelanto.</p>
+    <span class="eyebrow" data-reveal>01 · Portafolio audiovisual</span>
+    <h2 data-reveal>Proyectos <em>comerciales</em></h2>
+    <p class="lead" data-reveal>Producción, cámara y coordinación para marcas de movilidad, belleza, alimentos y eventos.</p>
+    <div class="vlaunch" id="videos">
+      <div class="vhead" data-reveal>
+        <h3>Videos de lanzamiento</h3>
+        <p class="cnt">Catálogo de videos producidos (5) · canal oficial de Bera Motorcycles</p>
+      </div>
+      <div class="vstage" data-reveal>
+        <div class="vmain" id="vmain" data-yt="KFjVJf0HnAU">
+          <button class="vplay" type="button" id="vplay" aria-label="Reproducir: Nuevo Carguero Pro 1000cc">
+            <img id="vposter" src="https://i.ytimg.com/vi/KFjVJf0HnAU/maxresdefault.jpg" alt="" decoding="async" width="1280" height="720">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="vinfo">
+          <span class="role" id="vrole">Asistente de producción · Fotografía</span>
+          <h4 id="vtitle">Nuevo Carguero Pro 1000cc</h4>
+          <p>Pieza audiovisual producida por Bramdon Aguilar para Bera Motorcycles.</p>
+          <a id="vlink" class="vlink" href="https://www.youtube.com/watch?v=KFjVJf0HnAU" target="_blank" rel="noopener">Ver en YouTube ↗</a>
+        </div>
+      </div>
+      <div class="vrail" role="group" aria-label="Catálogo de videos" data-stagger>
+        <button class="vthumb on" type="button" data-yt="KFjVJf0HnAU" data-title="Nuevo Carguero Pro 1000cc" data-role="Asistente de producción · Fotografía" aria-label="Seleccionar video: Nuevo Carguero Pro 1000cc" aria-pressed="true">
+          <img src="https://i.ytimg.com/vi/KFjVJf0HnAU/mqdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180">
+          <span class="ttl">Nuevo Carguero Pro 1000cc</span>
+        </button>
+        <button class="vthumb" type="button" data-yt="HtKyGs_RLN0" data-title="Nueva BRF 2027" data-role="Producción audiovisual" aria-label="Seleccionar video: Nueva BRF 2027" aria-pressed="false">
+          <img src="https://i.ytimg.com/vi/HtKyGs_RLN0/mqdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180">
+          <span class="ttl">Nueva BRF 2027</span>
+        </button>
+        <button class="vthumb" type="button" data-yt="yzuwvUXPXso" data-title="Nuevo motor 40 HP con Mando central" data-role="Dirección de rodaje y cámara" aria-label="Seleccionar video: Nuevo motor 40 HP con Mando central" aria-pressed="false">
+          <img src="https://i.ytimg.com/vi/yzuwvUXPXso/mqdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180">
+          <span class="ttl">Nuevo motor 40 HP con Mando central</span>
+        </button>
+        <button class="vthumb" type="button" data-yt="pfS3ru0CHT4" data-title="Nuevo Súper DT 250" data-role="Dirección de rodaje y cámara" aria-label="Seleccionar video: Nuevo Súper DT 250" aria-pressed="false">
+          <img src="https://i.ytimg.com/vi/pfS3ru0CHT4/mqdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180">
+          <span class="ttl">Nuevo Súper DT 250</span>
+        </button>
+        <button class="vthumb" type="button" data-yt="yU9dTjg0qfw" data-title="Nueva BRX 200cc" data-role="Producción audiovisual" aria-label="Seleccionar video: Nueva BRX 200cc" aria-pressed="false">
+          <img src="https://i.ytimg.com/vi/yU9dTjg0qfw/mqdefault.jpg" alt="" loading="lazy" decoding="async" width="320" height="180">
+          <span class="ttl">Nueva BRX 200cc</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="gal-head" data-reveal>
+      <h3>Galería de proyectos</h3>
+      <p class="lead">Toca un proyecto para ver sus fotos y videos. En computadora, pasa el mouse para ver un adelanto.</p>
+      <div class="chips pfilters" role="group" aria-label="Filtrar proyectos">
+        <button class="chip" type="button" data-pf="all" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-pf="lanzamientos" aria-pressed="false">Lanzamientos</button>
+        <button class="chip" type="button" data-pf="motos" aria-pressed="false">Motos &amp; náutica</button>
+        <button class="chip" type="button" data-pf="eventos" aria-pressed="false">Eventos</button>
+        <button class="chip" type="button" data-pf="campanas" aria-pressed="false">Campañas</button>
+      </div>
+    </div>
     <div class="cards" data-stagger>
-      <button class="card wide" type="button" data-project="maxglow" data-preview="video/miss-02.mp4" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="img/missedit-05.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="count">10 fotos · 6 videos</span></span>
+      <button class="card wide" data-wide="1" type="button" data-project="maxglow" data-cats="lanzamientos eventos" data-preview="video/miss-02.mp4" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="img/missedit-05.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="count">10 fotos · 5 videos</span></span>
         <span class="info">
           <span class="role">Coordinador Audiovisual</span>
           <h3>Maxglow x Miss Venezuela</h3>
@@ -450,7 +567,7 @@
           <span class="open">Ver galería</span>
         </span>
       </button>
-      <button class="card" type="button" data-project="brx" data-preview="" data-reveal="clip" aria-haspopup="dialog">
+      <button class="card" type="button" data-project="brx" data-cats="lanzamientos motos" data-preview="" data-reveal="clip" aria-haspopup="dialog">
         <span class="shot"><img src="img/brx-03.webp" alt="" loading="lazy" decoding="async" style="object-position:40% 50%"><span class="count">5 fotos</span></span>
         <span class="info">
           <span class="role">Coordinador Audiovisual</span>
@@ -460,7 +577,7 @@
           <span class="open">Ver galería</span>
         </span>
       </button>
-      <button class="card" type="button" data-project="brwave" data-preview="video/brwave-01.mp4" data-reveal="clip" aria-haspopup="dialog">
+      <button class="card" type="button" data-project="brwave" data-cats="lanzamientos motos" data-preview="video/brwave-01.mp4" data-reveal="clip" aria-haspopup="dialog">
         <span class="shot"><img src="img/brwave-01.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 55%"><span class="count">7 fotos · 2 videos</span></span>
         <span class="info">
           <span class="role">Productor Audiovisual</span>
@@ -470,7 +587,7 @@
           <span class="open">Ver galería</span>
         </span>
       </button>
-      <button class="card" type="button" data-project="segway" data-preview="video/segway-05.mp4" data-reveal="clip" aria-haspopup="dialog">
+      <button class="card" type="button" data-project="segway" data-cats="lanzamientos motos" data-preview="video/segway-05.mp4" data-reveal="clip" aria-haspopup="dialog">
         <span class="shot"><img src="img/segway-01.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 55%"><span class="count">4 fotos · 7 videos</span></span>
         <span class="info">
           <span class="role">Dirección de rodaje y cámara</span>
@@ -480,7 +597,7 @@
           <span class="open">Ver galería</span>
         </span>
       </button>
-      <button class="card" type="button" data-project="socialista" data-preview="video/socialista-01.mp4" data-reveal="clip" aria-haspopup="dialog">
+      <button class="card" type="button" data-project="socialista" data-cats="motos" data-preview="video/socialista-01.mp4" data-reveal="clip" aria-haspopup="dialog">
         <span class="shot"><img src="img/socialista-04.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 55%"><span class="count">7 fotos · 2 videos</span></span>
         <span class="info">
           <span class="role">Producción audiovisual</span>
@@ -490,7 +607,7 @@
           <span class="open">Ver galería</span>
         </span>
       </button>
-      <button class="card" type="button" data-project="pepsi" data-preview="video/pepsi-05.mp4" data-reveal="clip" aria-haspopup="dialog">
+      <button class="card" type="button" data-project="pepsi" data-cats="eventos" data-preview="video/pepsi-05.mp4" data-reveal="clip" aria-haspopup="dialog">
         <span class="shot"><img src="img/v-pepsi-05.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="count">1 foto · 5 videos</span></span>
         <span class="info">
           <span class="role">Cobertura audiovisual</span>
@@ -500,83 +617,152 @@
           <span class="open">Ver galería</span>
         </span>
       </button>
-      <button class="card" type="button" data-yt="KFjVJf0HnAU" data-title="Nuevo Carguero Pro 1000cc" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="https://i.ytimg.com/vi/KFjVJf0HnAU/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
-        <span class="info">
-          <span class="role">Producción audiovisual</span>
-          <h3>Nuevo Carguero Pro 1000cc</h3>
-          <span class="brandline">Bera Motorcycles · canal oficial</span>
-          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
-          <span class="open">Ver video</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-yt="HtKyGs_RLN0" data-title="Nueva BRF 2027" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="https://i.ytimg.com/vi/HtKyGs_RLN0/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
-        <span class="info">
-          <span class="role">Producción audiovisual</span>
-          <h3>Nueva BRF 2027</h3>
-          <span class="brandline">Bera Motorcycles · canal oficial</span>
-          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
-          <span class="open">Ver video</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-yt="yzuwvUXPXso" data-title="Nuevo motor 40 HP con Mando central" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="https://i.ytimg.com/vi/yzuwvUXPXso/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
-        <span class="info">
-          <span class="role">Producción audiovisual</span>
-          <h3>Nuevo motor 40 HP con Mando central</h3>
-          <span class="brandline">Bera Motorcycles · canal oficial</span>
-          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
-          <span class="open">Ver video</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-yt="pfS3ru0CHT4" data-title="Nuevo Súper DT 250" data-role="Coordinador de Producción" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="https://i.ytimg.com/vi/pfS3ru0CHT4/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
-        <span class="info">
-          <span class="role">Coordinador de Producción</span>
-          <h3>Nuevo Súper DT 250</h3>
-          <span class="brandline">Bera Motorcycles · canal oficial</span>
-          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
-          <span class="open">Ver video</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-yt="yU9dTjg0qfw" data-title="Nueva BRX 200cc" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="https://i.ytimg.com/vi/yU9dTjg0qfw/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
-        <span class="info">
-          <span class="role">Producción audiovisual</span>
-          <h3>Nueva BRX 200cc</h3>
-          <span class="brandline">Bera Motorcycles · canal oficial</span>
-          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
-          <span class="open">Ver video</span>
-        </span>
-      </button>
-      <article class="card pending" data-reveal>
+      <article class="card pending" data-cats="eventos" data-reveal>
         <span class="shot"><div class="soon">Material en camino</div></span>
         <span class="info">
           <span class="role">Coordinador Audiovisual</span>
           <h3>Aniversario Bera</h3>
-          <span class="brandline">Bera</span>
-          <span class="txt">Cobertura audiovisual de la celebración corporativa.</span>
-          
+          <span class="brandline">Bera Motorcycles · a través de Musa · 2025–2026</span>
+          <span class="txt">Organización de la cobertura audiovisual, asignación de roles y supervisión del equipo en el aniversario.</span>
         </span>
       </article>
-      <article class="card pending" data-reveal>
+    </div>
+    <div class="soon-head" data-reveal><h3>Próximos proyectos</h3><p>Material en camino: se publica apenas esté listo.</p></div>
+    <div class="cards soon-grid" data-stagger>
+      <article class="card pending" data-cats="lanzamientos" data-reveal>
+        <span class="shot"><div class="soon">Material en camino</div></span>
+        <span class="info">
+          <span class="role">Productor Audiovisual</span>
+          <h3>Lanzamiento: Ganar el Burger Master</h3>
+          <span class="brandline">Gran Combo · a través de Musa · 2026</span>
+          <span class="txt">Producción de contenido comercial para el lanzamiento.</span>
+        </span>
+      </article>
+      <article class="card pending" data-cats="lanzamientos" data-reveal>
+        <span class="shot"><div class="soon">Material en camino</div></span>
+        <span class="info">
+          <span class="role">Coordinador de Producción</span>
+          <h3>Lanzamiento: Ganar el Burger Master</h3>
+          <span class="brandline">Denver · a través de Musa · 2026</span>
+          <span class="txt">Planificación audiovisual, coordinación de equipo y producción de contenido promocional.</span>
+        </span>
+      </article>
+      <article class="card pending" data-cats="campanas" data-reveal>
         <span class="shot"><div class="soon">Material en camino</div></span>
         <span class="info">
           <span class="role">Productor Audiovisual</span>
           <h3>Campañas de concientización</h3>
           <span class="brandline">Bera</span>
           <span class="txt">Producción de piezas de comunicación con enfoque corporativo y de seguridad.</span>
-          
         </span>
       </article>
     </div>
   </div>
 </section>
 
+<section class="about" id="perfil">
+  <div class="wrap grid">
+    <div class="portrait" data-reveal="clip"><img id="portraitImg" src="img/bramdon.webp" alt="Retrato de Bramdon Aguilar" width="960" height="1200" loading="lazy" decoding="async"></div>
+    <div>
+      <span class="eyebrow" data-reveal>02 · Perfil profesional &amp; especialidades</span>
+      <h2 data-reveal>Visión publicitaria &amp; <em>dirección en set</em></h2>
+      <p class="big" data-reveal>Formación en mercadeo, coordinación logística en set y ejecución de video comercial.</p>
+      <div class="body">
+        <p data-reveal>Técnico Superior Universitario en Publicidad y Mercadeo, egresado del IUTA sede Maracay. Coordinador de producción audiovisual con experiencia en agencia 360 (Musa Business &amp; Marketing), liderando al equipo de producción para convertir las estrategias de marca de los socios en contenido real para feed, reels, tendencias, lanzamientos y coberturas corporativas.</p>
+        <p data-reveal>Su día a día en Musa: distribuye las tareas al equipo técnico durante toda la semana, decide la asignación de pautas, determina qué cámaras y ópticas usar, calcula cuántos videos se pueden rodar y supervisa la edición y la entrega final.</p>
+      </div>
+      <div class="edu" data-reveal>
+        <h3>T.S.U. en Publicidad y Mercadeo</h3>
+        <p class="where">IUTA sede Maracay · Instituto Universitario de Tecnología de Administración Industrial</p>
+        <p class="base">Base metodológica en comunicación persuasiva, investigación de audiencias, planificación de medios y gestión estratégica de marcas.</p>
+        <ul>
+          <li>Diplomado en Meta Ads <span>Ananas · campañas pagas y escalamiento</span></li>
+          <li>Diplomado Community Manager Pro <span>Cursonatics · estrategia y contenidos</span></li>
+        </ul>
+      </div>
+      <blockquote class="quote" data-reveal>
+        <p>En una agencia 360, la clave es la viabilidad operativa: los socios diseñan la estrategia con el cliente y el coordinador de producción organiza los recursos reales, define quién va a cada pauta, asigna las cámaras y calcula con exactitud cuántos videos se pueden grabar para garantizar calidad y entrega a tiempo.</p>
+        <cite>Cómo trabaja Bramdon en producción</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <span class="eyebrow" data-reveal>03 · Trayectoria</span>
+    <h2 data-reveal>Experiencia <em>profesional</em></h2>
+    <div class="job">
+      <div data-reveal="side">
+        <h3>Musa Business &amp; Marketing</h3>
+        <p class="period">Agosto 2025 – Septiembre 2026</p>
+        <p class="title">Coordinador de Producción Audiovisual</p>
+        <p class="agency">Agencia 360 de marketing, reels y producción para marcas.</p>
+        <p class="promo">Entró como operador de cámara y editor. Por su criterio en set, su organización y su resolución operativa, fue promovido a coordinador y quedó a cargo del equipo técnico durante toda la semana.</p>
+      </div>
+      <ol class="path" id="path" aria-label="Evolución en la agencia" data-observe>
+        <li>
+          <h4>Operador de cámara y editor audiovisual</h4>
+          <p>Rodajes comerciales, manejo de cámaras, estabilizadores e iluminación, y edición en Adobe Premiere Pro y CapCut. Su experiencia en set le permite comunicarse con cada operador con conocimiento técnico.</p>
+        </li>
+        <li>
+          <h4>Coordinador de Producción Audiovisual</h4>
+          <p>Gestiona al personal fijo de unas 6 personas entre camarógrafos y editores. Decide la asignación de pautas, los equipos de cámara por salida, el volumen de videos viables y el control de calidad de la entrega.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="flow" aria-label="Dinámica de trabajo en la agencia" data-stagger>
+      <div data-reveal>
+        <h4>Estrategia y clientes</h4>
+        <p>Los socios de Musa conciben las estrategias de marca, los objetivos comerciales y los acuerdos con los clientes.</p>
+      </div>
+      <div class="mine" data-reveal>
+        <h4>Coordinación y rodaje (Bramdon)</h4>
+        <p>Aterriza las ideas, calcula la viabilidad, decide quién va a cada pauta, asigna cámaras y coordina la grabación de cada pieza.</p>
+      </div>
+      <div data-reveal>
+        <h4>Equipo semanal y postproducción</h4>
+        <p>Camarógrafos y editores sacan adelante el contenido para feed, reels en tendencia y coberturas de eventos.</p>
+      </div>
+    </div>
+
+    <ul class="duties" data-stagger>
+      <li data-reveal>Dirección de equipos audiovisuales de unas 6 personas</li>
+      <li data-reveal>Aterrizar las estrategias de los socios en rodajes concretos</li>
+      <li data-reveal>Planificación de pautas: quién asiste a cada rodaje y quién queda en edición</li>
+      <li data-reveal>Asignación de equipo: cámaras, ópticas, gimbals, micrófonos e iluminación</li>
+      <li data-reveal>Cálculo de cuántos videos se pueden grabar por jornada</li>
+      <li data-reveal>Producción de contenidos para feed, reels, lanzamientos y eventos corporativos</li>
+      <li data-reveal>Supervisión de postproducción y entrega</li>
+      <li data-reveal>Resolución de imprevistos en tiempo real durante grabaciones y eventos</li>
+    </ul>
+
+    <div class="pillars" data-stagger>
+      <div data-reveal>
+        <h4>Gestión del equipo técnico semanal</h4>
+        <p>Liderazgo operativo del personal fijo durante toda la jornada, entre camarógrafos en calle y editores en base.</p>
+      </div>
+      <div data-reveal>
+        <h4>Planificación de pautas y asignación de cámaras</h4>
+        <p>Decisión de quién asiste a cada grabación, qué equipo lleva cada operador y cuántos formatos se pueden rodar.</p>
+      </div>
+      <div data-reveal>
+        <h4>Ejecución práctica de estrategias de marca</h4>
+        <p>Las estrategias de los socios se convierten en contenido atractivo para feed, reels y coberturas.</p>
+      </div>
+      <div data-reveal>
+        <h4>Resolución operativa y control de calidad</h4>
+        <p>Respuesta inmediata a imprevistos técnicos para que el material final cumpla el estándar de cada marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="brands" id="marcas">
   <div class="wrap">
-    <h2 data-reveal>Marcas con las que he trabajado</h2>
+    <span class="eyebrow" data-reveal>04 · Cartera de clientes</span>
+    <h2 data-reveal>Marcas con las que <em>he trabajado</em></h2>
     <p class="lead" data-reveal>Contenido y producción para empresas de movilidad, belleza, moda, alimentos y retail, desde la agencia 360 Musa.</p>
     <div class="chips" role="group" aria-label="Filtrar marcas por sector" data-reveal>
       <button class="chip" type="button" data-filter="all" aria-pressed="true">Todas</button>
@@ -686,106 +872,10 @@
   </div>
 </section>
 
-<section id="experiencia">
-  <div class="wrap">
-    <h2 data-reveal>Experiencia</h2>
-    <div class="job">
-      <div data-reveal="side">
-        <h3>Musa Business &amp; Marketing</h3>
-        <p class="period">Agosto 2025 – Septiembre 2026</p>
-        <p class="title">Coordinador de Producción Audiovisual</p>
-        <p class="agency">Agencia 360 de marketing, reels y producción para marcas.</p>
-        <p class="promo">Entró como operador de cámara y editor. Por su criterio en set, su organización y su resolución operativa, fue promovido a coordinador y quedó a cargo del equipo técnico durante toda la semana.</p>
-      </div>
-      <ol class="path" id="path" aria-label="Evolución en la agencia" data-observe>
-        <li>
-          <h4>Operador de cámara y editor audiovisual</h4>
-          <p>Rodajes comerciales, manejo de cámaras, estabilizadores e iluminación, y edición en Adobe Premiere Pro y CapCut. Su experiencia en set le permite comunicarse con cada operador con conocimiento técnico.</p>
-        </li>
-        <li>
-          <h4>Coordinador de Producción Audiovisual</h4>
-          <p>Gestiona al personal fijo de unas 6 personas entre camarógrafos y editores. Decide la asignación de pautas, los equipos de cámara por salida, el volumen de videos viables y el control de calidad de la entrega.</p>
-        </li>
-      </ol>
-    </div>
-
-    <div class="flow" aria-label="Dinámica de trabajo en la agencia" data-stagger>
-      <div data-reveal>
-        <h4>Estrategia y clientes</h4>
-        <p>Los socios de Musa conciben las estrategias de marca, los objetivos comerciales y los acuerdos con los clientes.</p>
-      </div>
-      <div class="mine" data-reveal>
-        <h4>Coordinación y rodaje (Bramdon)</h4>
-        <p>Aterriza las ideas, calcula la viabilidad, decide quién va a cada pauta, asigna cámaras y coordina la grabación de cada pieza.</p>
-      </div>
-      <div data-reveal>
-        <h4>Equipo semanal y postproducción</h4>
-        <p>Camarógrafos y editores sacan adelante el contenido para feed, reels en tendencia y coberturas de eventos.</p>
-      </div>
-    </div>
-
-    <ul class="duties" data-stagger>
-      <li data-reveal>Dirección de equipos audiovisuales de unas 6 personas</li>
-      <li data-reveal>Aterrizar las estrategias de los socios en rodajes concretos</li>
-      <li data-reveal>Planificación de pautas: quién asiste a cada rodaje y quién queda en edición</li>
-      <li data-reveal>Asignación de equipo: cámaras, ópticas, gimbals, micrófonos e iluminación</li>
-      <li data-reveal>Cálculo de cuántos videos se pueden grabar por jornada</li>
-      <li data-reveal>Producción de contenidos para feed, reels, lanzamientos y eventos corporativos</li>
-      <li data-reveal>Supervisión de postproducción y entrega</li>
-      <li data-reveal>Resolución de imprevistos en tiempo real durante grabaciones y eventos</li>
-    </ul>
-
-    <div class="pillars" data-stagger>
-      <div data-reveal>
-        <h4>Gestión del equipo técnico semanal</h4>
-        <p>Liderazgo operativo del personal fijo durante toda la jornada, entre camarógrafos en calle y editores en base.</p>
-      </div>
-      <div data-reveal>
-        <h4>Planificación de pautas y asignación de cámaras</h4>
-        <p>Decisión de quién asiste a cada grabación, qué equipo lleva cada operador y cuántos formatos se pueden rodar.</p>
-      </div>
-      <div data-reveal>
-        <h4>Ejecución práctica de estrategias de marca</h4>
-        <p>Las estrategias de los socios se convierten en contenido atractivo para feed, reels y coberturas.</p>
-      </div>
-      <div data-reveal>
-        <h4>Resolución operativa y control de calidad</h4>
-        <p>Respuesta inmediata a imprevistos técnicos para que el material final cumpla el estándar de cada marca.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="perfil">
-  <div class="wrap grid">
-    <div class="portrait" data-reveal="clip"><img id="portraitImg" src="img/bramdon.webp" alt="Retrato de Bramdon Aguilar" width="960" height="1200" loading="lazy" decoding="async"></div>
-    <div>
-      <h2 data-reveal>Sobre mí</h2>
-      <p class="big" data-reveal>Formación en mercadeo, coordinación logística en set y ejecución de video comercial.</p>
-      <div class="body">
-        <p data-reveal>Técnico Superior Universitario en Publicidad y Mercadeo, egresado del IUTA sede Maracay. Coordinador de producción audiovisual con experiencia en agencia 360 (Musa Business &amp; Marketing), liderando al equipo de producción para convertir las estrategias de marca de los socios en contenido real para feed, reels, tendencias, lanzamientos y coberturas corporativas.</p>
-        <p data-reveal>Su día a día en Musa: distribuye las tareas al equipo técnico durante toda la semana, decide la asignación de pautas, determina qué cámaras y ópticas usar, calcula cuántos videos se pueden rodar y supervisa la edición y la entrega final.</p>
-      </div>
-      <div class="edu" data-reveal>
-        <h3>T.S.U. en Publicidad y Mercadeo</h3>
-        <p class="where">IUTA sede Maracay · Instituto Universitario de Tecnología de Administración Industrial</p>
-        <p class="base">Base metodológica en comunicación persuasiva, investigación de audiencias, planificación de medios y gestión estratégica de marcas.</p>
-        <ul>
-          <li>Diplomado en Meta Ads <span>Ananas · campañas pagas y escalamiento</span></li>
-          <li>Diplomado Community Manager Pro <span>Cursonatics · estrategia y contenidos</span></li>
-        </ul>
-      </div>
-      <blockquote class="quote" data-reveal>
-        <p>En una agencia 360, la clave es la viabilidad operativa: los socios diseñan la estrategia con el cliente y el coordinador de producción organiza los recursos reales, define quién va a cada pauta, asigna las cámaras y calcula con exactitud cuántos videos se pueden grabar para garantizar calidad y entrega a tiempo.</p>
-        <cite>Cómo trabaja Bramdon en producción</cite>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
 <section class="skills" id="skills">
   <div class="wrap">
-    <h2 data-reveal>Habilidades</h2>
+    <span class="eyebrow" data-reveal>05 · Capacidades</span>
+    <h2 data-reveal>Habilidades &amp; <em>herramientas</em></h2>
     <div class="skill-cards" data-stagger>
       <div class="skill" data-reveal>
         <h3>Producción</h3>
@@ -813,6 +903,7 @@
 
 <section class="contact" id="contacto">
   <div class="wrap">
+    <span class="eyebrow" data-reveal>06 · Contacto</span>
     <h2 data-reveal>Bramdon Aguilar</h2>
     <p class="sub" data-reveal>Creative Producer</p>
     <p class="avail" data-reveal>Disponible para proyectos audiovisuales y oportunidades profesionales, en Venezuela y en el exterior.</p>
@@ -851,7 +942,7 @@
 </dialog>
 
 <script>
-  const PROJECTS = {"maxglow": {"title": "Maxglow x Miss Venezuela", "brand": "Maxglow · Miss Venezuela", "role": "Coordinador Audiovisual", "desc": "Producción y coordinación audiovisual del lanzamiento de la nueva línea de esmaltes de Maxglow en colaboración con Miss Venezuela: sesión de producto, cobertura del evento y backstage.", "photos": ["img/missedit-05.webp", "img/missedit-01.webp", "img/missedit-03.webp", "img/missedit-02.webp", "img/missedit-04.webp", "img/miss-03.webp", "img/miss-04.webp", "img/miss-01.webp", "img/miss-05.webp", "img/miss-06.webp"], "videos": [{"src": "video/miss-02.mp4", "poster": "img/v-miss-02.webp"}, {"src": "video/miss-03.mp4", "poster": "img/v-miss-03.webp"}, {"src": "video/miss-04.mp4", "poster": "img/v-miss-04.webp"}, {"src": "video/miss-05.mp4", "poster": "img/v-miss-05.webp"}, {"src": "video/miss-01.mp4", "poster": "img/v-miss-01.webp"}, {"src": "video/miss-06.mp4", "poster": "img/v-miss-06.webp"}]}, "brx": {"title": "Lanzamiento BRX", "brand": "Bera", "role": "Coordinador Audiovisual", "desc": "Coordinación de producción y supervisión de contenido comercial para el lanzamiento del modelo BRX.", "photos": ["img/brx-03.webp", "img/brx-01.webp", "img/brx-02.webp", "img/brx-04.webp", "img/brx-05.webp"], "videos": []}, "brwave": {"title": "Bera Wave: lanzamiento de motores fuera de borda", "brand": "Bera Wave", "role": "Productor Audiovisual", "desc": "Producción del contenido de lanzamiento de motores fuera de borda: rodaje dinámico en costa marina, fotografía y video.", "photos": ["img/brwave-01.webp", "img/brwave-03.webp", "img/brwave-02.webp", "img/brwave-04.webp", "img/brwave-05.webp", "img/brwave-06.webp", "img/brwave-07.webp"], "videos": [{"src": "video/brwave-01.mp4", "poster": "img/v-brwave-01.webp"}, {"src": "video/brwave-02.mp4", "poster": "img/v-brwave-02.webp"}]}, "segway": {"title": "Segway Snarler AT10", "brand": "Segway", "role": "Dirección de rodaje y cámara", "desc": "Video de lanzamiento de la Snarler AT10 y creación de contenido de producto en locación.", "photos": ["img/segway-01.webp", "img/segway-03.webp", "img/segway-04.webp", "img/segway-02.webp"], "videos": [{"src": "video/segway-lanzamiento-at10.mp4", "poster": "img/v-segway-lanzamiento-at10.webp", "title": "Video de lanzamiento"}, {"src": "video/segway-05.mp4", "poster": "img/v-segway-05.webp"}, {"src": "video/segway-02.mp4", "poster": "img/v-segway-02.webp"}, {"src": "video/segway-03.mp4", "poster": "img/v-segway-03.webp"}, {"src": "video/segway-01.mp4", "poster": "img/v-segway-01.webp"}, {"src": "video/segway-04.mp4", "poster": "img/v-segway-04.webp"}, {"src": "video/segway-06.mp4", "poster": "img/v-segway-06.webp"}]}, "socialista": {"title": "Bera Socialista", "brand": "Bera Motorcycles", "role": "Producción audiovisual", "desc": "Sesión de producto de la línea Socialista en los cerros de la ciudad y en calle, con fotografía y clips para redes.", "photos": ["img/socialista-04.webp", "img/socialista-01.webp", "img/socialista-02.webp", "img/socialista-03.webp", "img/socialista-05.webp", "img/socialista-06.webp", "img/socialista-07.webp"], "videos": [{"src": "video/socialista-01.mp4", "poster": "img/v-socialista-01.webp"}, {"src": "video/socialista-02.mp4", "poster": "img/v-socialista-02.webp"}]}, "pepsi": {"title": "Premios Pepsi", "brand": "Cobertura de evento", "role": "Cobertura audiovisual", "desc": "Cobertura en video del evento, con cámara en mano y registro en el lugar.", "photos": ["img/pepsi-01.webp"], "videos": [{"src": "video/pepsi-05.mp4", "poster": "img/v-pepsi-05.webp"}, {"src": "video/pepsi-04.mp4", "poster": "img/v-pepsi-04.webp"}, {"src": "video/pepsi-01.mp4", "poster": "img/v-pepsi-01.webp"}, {"src": "video/pepsi-02.mp4", "poster": "img/v-pepsi-02.webp"}, {"src": "video/pepsi-03.mp4", "poster": "img/v-pepsi-03.webp"}]}};
+  const PROJECTS = {"maxglow": {"title": "Maxglow x Miss Venezuela", "brand": "Maxglow · Miss Venezuela", "role": "Coordinador Audiovisual", "desc": "Producción y coordinación audiovisual del lanzamiento de la nueva línea de esmaltes de Maxglow en colaboración con Miss Venezuela: sesión de producto, cobertura del evento y backstage.", "photos": ["img/missedit-05.webp", "img/missedit-01.webp", "img/missedit-03.webp", "img/missedit-02.webp", "img/missedit-04.webp", "img/miss-03.webp", "img/miss-04.webp", "img/miss-01.webp", "img/miss-05.webp", "img/miss-06.webp"], "videos": [{"src": "video/miss-02.mp4", "poster": "img/v-miss-02.webp"}, {"src": "video/miss-03.mp4", "poster": "img/v-miss-03.webp"}, {"src": "video/miss-04.mp4", "poster": "img/v-miss-04.webp"}, {"src": "video/miss-05.mp4", "poster": "img/v-miss-05.webp"}, {"src": "video/miss-06.mp4", "poster": "img/v-miss-06.webp"}]}, "brx": {"title": "Lanzamiento BRX", "brand": "Bera", "role": "Coordinador Audiovisual", "desc": "Coordinación de producción y supervisión de contenido comercial para el lanzamiento del modelo BRX.", "photos": ["img/brx-03.webp", "img/brx-01.webp", "img/brx-02.webp", "img/brx-04.webp", "img/brx-05.webp"], "videos": []}, "brwave": {"title": "Bera Wave: lanzamiento de motores fuera de borda", "brand": "Bera Wave", "role": "Productor Audiovisual", "desc": "Producción del contenido de lanzamiento de motores fuera de borda: rodaje dinámico en costa marina, fotografía y video.", "photos": ["img/brwave-01.webp", "img/brwave-03.webp", "img/brwave-02.webp", "img/brwave-04.webp", "img/brwave-05.webp", "img/brwave-06.webp", "img/brwave-07.webp"], "videos": [{"src": "video/brwave-01.mp4", "poster": "img/v-brwave-01.webp"}, {"src": "video/brwave-02.mp4", "poster": "img/v-brwave-02.webp"}]}, "segway": {"title": "Segway Snarler AT10", "brand": "Segway", "role": "Dirección de rodaje y cámara", "desc": "Video de lanzamiento de la Snarler AT10 y creación de contenido de producto en locación.", "photos": ["img/segway-01.webp", "img/segway-03.webp", "img/segway-04.webp", "img/segway-02.webp"], "videos": [{"src": "video/segway-lanzamiento-at10.mp4", "poster": "img/v-segway-lanzamiento-at10.webp", "title": "Video de lanzamiento"}, {"src": "video/segway-05.mp4", "poster": "img/v-segway-05.webp"}, {"src": "video/segway-02.mp4", "poster": "img/v-segway-02.webp"}, {"src": "video/segway-03.mp4", "poster": "img/v-segway-03.webp"}, {"src": "video/segway-01.mp4", "poster": "img/v-segway-01.webp"}, {"src": "video/segway-04.mp4", "poster": "img/v-segway-04.webp"}, {"src": "video/segway-06.mp4", "poster": "img/v-segway-06.webp"}]}, "socialista": {"title": "Bera Socialista", "brand": "Bera Motorcycles", "role": "Producción audiovisual", "desc": "Sesión de producto de la línea Socialista en los cerros de la ciudad y en calle, con fotografía y clips para redes.", "photos": ["img/socialista-04.webp", "img/socialista-01.webp", "img/socialista-02.webp", "img/socialista-03.webp", "img/socialista-05.webp", "img/socialista-06.webp", "img/socialista-07.webp"], "videos": [{"src": "video/socialista-01.mp4", "poster": "img/v-socialista-01.webp"}, {"src": "video/socialista-02.mp4", "poster": "img/v-socialista-02.webp"}]}, "pepsi": {"title": "Premios Pepsi", "brand": "Cobertura de evento", "role": "Cobertura audiovisual", "desc": "Cobertura en video del evento, con cámara en mano y registro en el lugar.", "photos": ["img/pepsi-01.webp"], "videos": [{"src": "video/pepsi-05.mp4", "poster": "img/v-pepsi-05.webp"}, {"src": "video/pepsi-04.mp4", "poster": "img/v-pepsi-04.webp"}, {"src": "video/pepsi-01.mp4", "poster": "img/v-pepsi-01.webp"}, {"src": "video/pepsi-02.mp4", "poster": "img/v-pepsi-02.webp"}, {"src": "video/pepsi-03.mp4", "poster": "img/v-pepsi-03.webp"}]}};
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -1040,7 +1131,7 @@
 
   /* ---- Filtro de marcas ---- */
   (function () {
-    const chips = $$('.chip'), items = $$('.brand');
+    const chips = $$('.brands .chip'), items = $$('.brand');
     chips.forEach(function (ch) {
       ch.addEventListener('click', function () {
         chips.forEach(function (c) { c.setAttribute('aria-pressed', c === ch); });
@@ -1126,6 +1217,52 @@
     } else start();
   })();
 
+  /* ---- Videos de lanzamiento: video principal + catálogo ---- */
+  (function () {
+    const main = $('#vmain'), rail = $$('.vthumb'); if (!main) return;
+    const role = $('#vrole'), title = $('#vtitle'), link = $('#vlink');
+    function poster(id) { return 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg'; }
+    function select(b) {
+      rail.forEach(function (r) { const on = r === b; r.classList.toggle('on', on); r.setAttribute('aria-pressed', on); });
+      const id = b.dataset.yt;
+      main.dataset.yt = id; role.textContent = b.dataset.role; title.textContent = b.dataset.title;
+      link.href = 'https://www.youtube.com/watch?v=' + id;
+      main.innerHTML = '<button class="vplay" type="button" aria-label="Reproducir: ' + b.dataset.title + '"><img alt="" decoding="async" src="' + poster(id) + '" width="1280" height="720"><span class="play" aria-hidden="true"></span></button>';
+      bind();
+    }
+    function play() {
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + main.dataset.yt + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = title.textContent; f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+      main.innerHTML = ''; main.appendChild(f); f.focus();
+    }
+    function bind() {
+      const btn = $('.vplay', main); if (!btn) return;
+      const im = $('img', btn);
+      im.addEventListener('error', function () { if (!im.dataset.fb) { im.dataset.fb = 1; im.src = 'https://i.ytimg.com/vi/' + main.dataset.yt + '/hqdefault.jpg'; } });
+      btn.addEventListener('click', play);
+    }
+    rail.forEach(function (b) { b.addEventListener('click', function () { select(b); }); });
+    bind();
+  })();
+
+  /* ---- Filtros de proyectos ---- */
+  (function () {
+    const chips = $$('.pfilters .chip'), cards = $$('.cards .card');
+    chips.forEach(function (ch) {
+      ch.addEventListener('click', function () {
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', c === ch); });
+        const f = ch.dataset.pf; let n = 0;
+        cards.forEach(function (c) {
+          const show = f === 'all' || (c.dataset.cats || '').split(' ').indexOf(f) > -1;
+          c.classList.toggle('off', !show);
+          if (show) { c.classList.add('in'); c.animate([{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 500, delay: (n++) * 50, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }); }
+        });
+        cards.forEach(function (c) { if (c.dataset.wide) c.classList.toggle('wide', f === 'all'); });
+      });
+    });
+  })();
+
   /* ---- Galería por proyecto + visor de fotos ---- */
   (function () {
     const dlg = $('#gallery'), body = $('#gal-body'), lb = $('#lb'), lbImg = $('#lb-img'), lbC = $('#lb-c');
@@ -1171,13 +1308,6 @@
     });
     $('.dlg-close', dlg).addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-    function openYt(b) {
-      lastBtn = b; photos = [];
-      $('#gal-title').textContent = b.dataset.title; $('#gal-meta').textContent = b.dataset.role + ' · Bera Motorcycles'; $('#gal-desc').textContent = 'Video publicado en el canal oficial de Bera Motorcycles.';
-      body.innerHTML = '<div class="ytframe"><iframe src="https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0&modestbranding=1" title="' + b.dataset.title + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p style="margin-top:16px"><a href="https://www.youtube.com/watch?v=' + b.dataset.yt + '" target="_blank" rel="noopener" style="color:var(--blue-soft)">Ver en YouTube ↗</a></p>';
-      dlg.showModal(); document.body.classList.add('lock'); dlg.scrollTop = 0;
-    }
-    $$('button.card[data-yt]').forEach(function (b) { b.addEventListener('click', function () { openYt(b); }); });
     $$('button.card[data-project]').forEach(function (b) { b.addEventListener('click', function () { open(b.dataset.project, b); }); });
   })();
 </script>
