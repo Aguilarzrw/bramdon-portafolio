@@ -59,6 +59,8 @@
   "knowsAbout": ["Producción audiovisual", "Dirección de rodajes", "Edición de video", "Brand content", "Marketing digital"]
 }
 </script>
+<link rel="preload" as="image" href="img/hero-poster.webp" fetchpriority="high">
+<link rel="dns-prefetch" href="https://i.ytimg.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
@@ -214,8 +216,27 @@
   @media (max-width: 960px) { .brand-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .brand-grid { grid-template-columns: 1fr; } }
 
+
+  /* ---------- YouTube ---------- */
+  .ytsec { margin-top: clamp(64px, 9vw, 110px); }
+  .ytsub { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 2.6vw, 1.9rem); letter-spacing: -.01em; }
+  .ytsec .lead { margin: 10px 0 28px; }
+  .ytgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .yt { position: relative; display: block; overflow: hidden; background: var(--graphite); aspect-ratio: 16 / 9; grid-column: span 2; text-align: left; }
+  .yt:nth-child(-n+2) { grid-column: span 3; }
+  .yt img, .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; transition: transform .6s var(--ease), filter .4s; }
+  .yt:hover img { transform: scale(1.05); filter: brightness(.8); }
+  .yt .play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: rgba(29,63,168,.92); box-shadow: 0 0 0 0 rgba(58,95,208,.5); transition: transform .3s var(--ease); }
+  .yt .play::after { content: ""; position: absolute; left: 23px; top: 18px; border-left: 17px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+  .yt:hover .play { transform: scale(1.12); }
+  .yt .ytt { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 14px 12px; font-family: var(--display); font-weight: 600; font-size: .92rem; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
+  .yt.on .play, .yt.on .ytt { display: none; }
+  .ytlink { display: inline-block; margin-top: 24px; color: var(--blue-soft); font-family: var(--display); font-weight: 600; font-size: .9rem; }
+  .ytlink:hover { text-decoration: underline; }
+  @media (max-width: 760px) { .ytgrid { grid-template-columns: 1fr; } .yt, .yt:nth-child(-n+2) { grid-column: auto; } }
+
   /* ---------- Proyectos ---------- */
-  .projects { background: var(--ink); }
+  .brands { background: var(--ink); }
   .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 44px 28px; }
   .card { display: block; width: 100%; }
   .card.wide { grid-column: 1 / -1; }
@@ -313,7 +334,7 @@
   .about { background: var(--ink); }
   .about .grid { display: grid; grid-template-columns: 0.8fr 1.4fr; gap: clamp(32px, 7vw, 100px); align-items: start; }
   .portrait { aspect-ratio: 4 / 5; overflow: hidden; background: var(--graphite); position: sticky; top: 96px; }
-  .portrait img { width: 100%; height: 118%; object-fit: cover; object-position: 50% 30%; will-change: transform; }
+  .portrait img { width: 100%; height: 118%; object-fit: cover; object-position: 50% 20%; will-change: transform; }
   .about h2 { margin-bottom: 28px; }
   .about .big { font-family: var(--display); font-weight: 500; font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.4; letter-spacing: -0.01em; max-width: 34ch; }
   .about .body p { color: var(--mist); margin-top: 20px; max-width: 62ch; font-size: .98rem; }
@@ -378,8 +399,8 @@
   <a class="brand-mark" href="#inicio">BA</a>
   <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   <ul id="menu">
-    <li><a href="#marcas">Marcas</a></li>
     <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#marcas">Marcas</a></li>
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#perfil">Perfil</a></li>
     <li><a href="#contacto">Contacto</a></li>
@@ -417,6 +438,137 @@
       <li data-reveal><strong data-count="100" data-suffix="+">100+</strong><span>Spots publicitarios y videos realizados</span></li>
       <li data-reveal><strong data-count="100" data-suffix="%">100%</strong><span>Cumplimiento de pautas y entregas semanales</span></li>
     </ul>
+  </div>
+</section>
+
+<section class="projects" id="proyectos">
+  <div class="wrap">
+    <h2 data-reveal>Proyectos</h2>
+    <p class="lead" data-reveal>Toca un proyecto para ver sus fotos y videos. En computadora, pasa el mouse para ver un adelanto.</p>
+    <div class="cards" data-stagger>
+      <button class="card wide" type="button" data-project="maxglow" data-preview="video/miss-02.mp4" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="img/missedit-05.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="count">10 fotos · 6 videos</span></span>
+        <span class="info">
+          <span class="role">Coordinador Audiovisual</span>
+          <h3>Maxglow x Miss Venezuela</h3>
+          <span class="brandline">Maxglow · Miss Venezuela</span>
+          <span class="txt">Producción y coordinación audiovisual del lanzamiento de la nueva línea de esmaltes de Maxglow en colaboración con Miss Venezuela: sesión de producto, cobertura del evento y backstage.</span>
+          <span class="open">Ver galería</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-project="brx" data-preview="" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="img/brx-03.webp" alt="" loading="lazy" decoding="async" style="object-position:40% 50%"><span class="count">5 fotos</span></span>
+        <span class="info">
+          <span class="role">Coordinador Audiovisual</span>
+          <h3>Lanzamiento BRX</h3>
+          <span class="brandline">Bera</span>
+          <span class="txt">Coordinación de producción y supervisión de contenido comercial para el lanzamiento del modelo BRX.</span>
+          <span class="open">Ver galería</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-project="brwave" data-preview="video/brwave-01.mp4" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="img/brwave-01.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 55%"><span class="count">7 fotos · 2 videos</span></span>
+        <span class="info">
+          <span class="role">Productor Audiovisual</span>
+          <h3>Bera Wave: lanzamiento de motores fuera de borda</h3>
+          <span class="brandline">Bera Wave</span>
+          <span class="txt">Producción del contenido de lanzamiento de motores fuera de borda: rodaje dinámico en costa marina, fotografía y video.</span>
+          <span class="open">Ver galería</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-project="segway" data-preview="video/segway-05.mp4" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="img/segway-01.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 55%"><span class="count">4 fotos · 7 videos</span></span>
+        <span class="info">
+          <span class="role">Dirección de rodaje y cámara</span>
+          <h3>Segway Snarler AT10</h3>
+          <span class="brandline">Segway</span>
+          <span class="txt">Video de lanzamiento de la Snarler AT10 y creación de contenido de producto en locación.</span>
+          <span class="open">Ver galería</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-project="socialista" data-preview="video/socialista-01.mp4" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="img/socialista-04.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 55%"><span class="count">7 fotos · 2 videos</span></span>
+        <span class="info">
+          <span class="role">Producción audiovisual</span>
+          <h3>Bera Socialista</h3>
+          <span class="brandline">Bera Motorcycles</span>
+          <span class="txt">Sesión de producto de la línea Socialista en los cerros de la ciudad y en calle, con fotografía y clips para redes.</span>
+          <span class="open">Ver galería</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-project="pepsi" data-preview="video/pepsi-05.mp4" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="img/v-pepsi-05.webp" alt="" loading="lazy" decoding="async" style="object-position:50% 30%"><span class="count">1 foto · 5 videos</span></span>
+        <span class="info">
+          <span class="role">Cobertura audiovisual</span>
+          <h3>Premios Pepsi</h3>
+          <span class="brandline">Cobertura de evento</span>
+          <span class="txt">Cobertura en video del evento, con cámara en mano y registro en el lugar.</span>
+          <span class="open">Ver galería</span>
+        </span>
+      </button>
+      <article class="card pending" data-reveal>
+        <span class="shot"><div class="soon">Material en camino</div></span>
+        <span class="info">
+          <span class="role">Coordinador de Producción</span>
+          <h3>Bera Super DT 250</h3>
+          <span class="brandline">Bera Motorcycles</span>
+          <span class="txt">Coordinación de la producción audiovisual del lanzamiento de producto.</span>
+          
+        </span>
+      </article>
+      <article class="card pending" data-reveal>
+        <span class="shot"><div class="soon">Material en camino</div></span>
+        <span class="info">
+          <span class="role">Coordinador Audiovisual</span>
+          <h3>Aniversario Bera</h3>
+          <span class="brandline">Bera</span>
+          <span class="txt">Cobertura audiovisual de la celebración corporativa.</span>
+          
+        </span>
+      </article>
+      <article class="card pending" data-reveal>
+        <span class="shot"><div class="soon">Material en camino</div></span>
+        <span class="info">
+          <span class="role">Productor Audiovisual</span>
+          <h3>Campañas de concientización</h3>
+          <span class="brandline">Bera</span>
+          <span class="txt">Producción de piezas de comunicación con enfoque corporativo y de seguridad.</span>
+          
+        </span>
+      </article>
+    </div>
+    <div class="ytsec">
+      <h3 class="ytsub" data-reveal>Videos publicados en el canal oficial de Bera Motorcycles</h3>
+      <p class="lead" data-reveal>Producciones de lanzamiento que ya están al aire. Toca un video para reproducirlo aquí mismo.</p>
+      <div class="ytgrid" data-stagger>
+      <button class="yt" type="button" data-yt="KFjVJf0HnAU" aria-label="Reproducir: Nuevo Carguero Pro 1000cc" data-reveal>
+        <img src="https://i.ytimg.com/vi/KFjVJf0HnAU/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
+        <span class="play" aria-hidden="true"></span>
+        <span class="ytt">Nuevo Carguero Pro 1000cc</span>
+      </button>
+      <button class="yt" type="button" data-yt="HtKyGs_RLN0" aria-label="Reproducir: Nueva BRF 2027" data-reveal>
+        <img src="https://i.ytimg.com/vi/HtKyGs_RLN0/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
+        <span class="play" aria-hidden="true"></span>
+        <span class="ytt">Nueva BRF 2027</span>
+      </button>
+      <button class="yt" type="button" data-yt="yzuwvUXPXso" aria-label="Reproducir: Nuevo motor 40 HP con Mando central" data-reveal>
+        <img src="https://i.ytimg.com/vi/yzuwvUXPXso/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
+        <span class="play" aria-hidden="true"></span>
+        <span class="ytt">Nuevo motor 40 HP con Mando central</span>
+      </button>
+      <button class="yt" type="button" data-yt="pfS3ru0CHT4" aria-label="Reproducir: Nuevo Súper DT 250" data-reveal>
+        <img src="https://i.ytimg.com/vi/pfS3ru0CHT4/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
+        <span class="play" aria-hidden="true"></span>
+        <span class="ytt">Nuevo Súper DT 250</span>
+      </button>
+      <button class="yt" type="button" data-yt="yU9dTjg0qfw" aria-label="Reproducir: Nueva BRX 200cc" data-reveal>
+        <img src="https://i.ytimg.com/vi/yU9dTjg0qfw/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
+        <span class="play" aria-hidden="true"></span>
+        <span class="ytt">Nueva BRX 200cc</span>
+      </button>
+      </div>
+      <a class="ytlink" href="https://www.youtube.com/@beramotorcycles" target="_blank" rel="noopener">Ver el canal en YouTube ↗</a>
+    </div>
   </div>
 </section>
 
@@ -532,105 +684,6 @@
   </div>
 </section>
 
-<section class="projects" id="proyectos">
-  <div class="wrap">
-    <h2 data-reveal>Proyectos</h2>
-    <p class="lead" data-reveal>Toca un proyecto para ver sus fotos y videos. En computadora, pasa el mouse para ver un adelanto.</p>
-    <div class="cards" data-stagger>
-      <button class="card wide" type="button" data-project="maxglow" data-preview="video/miss-02.mp4" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="img/missedit-05.webp" alt="" loading="lazy" style="object-position:50% 30%"><span class="count">10 fotos · 6 videos</span></span>
-        <span class="info">
-          <span class="role">Coordinador Audiovisual</span>
-          <h3>Maxglow x Miss Venezuela</h3>
-          <span class="brandline">Maxglow · Miss Venezuela</span>
-          <span class="txt">Producción y coordinación audiovisual del lanzamiento de la nueva línea de esmaltes de Maxglow en colaboración con Miss Venezuela: sesión de producto, cobertura del evento y backstage.</span>
-          <span class="open">Ver galería</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-project="brx" data-preview="" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="img/brx-03.webp" alt="" loading="lazy" style="object-position:40% 50%"><span class="count">5 fotos</span></span>
-        <span class="info">
-          <span class="role">Coordinador Audiovisual</span>
-          <h3>Lanzamiento BRX</h3>
-          <span class="brandline">Bera</span>
-          <span class="txt">Coordinación de producción y supervisión de contenido comercial para el lanzamiento del modelo BRX.</span>
-          <span class="open">Ver galería</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-project="brwave" data-preview="video/brwave-01.mp4" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="img/brwave-01.webp" alt="" loading="lazy" style="object-position:50% 55%"><span class="count">7 fotos · 2 videos</span></span>
-        <span class="info">
-          <span class="role">Productor Audiovisual</span>
-          <h3>Bera Wave: lanzamiento de motores fuera de borda</h3>
-          <span class="brandline">Bera Wave</span>
-          <span class="txt">Producción del contenido de lanzamiento de motores fuera de borda: rodaje dinámico en costa marina, fotografía y video.</span>
-          <span class="open">Ver galería</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-project="segway" data-preview="video/segway-05.mp4" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="img/segway-01.webp" alt="" loading="lazy" style="object-position:50% 55%"><span class="count">4 fotos · 7 videos</span></span>
-        <span class="info">
-          <span class="role">Dirección de rodaje y cámara</span>
-          <h3>Segway Snarler AT10</h3>
-          <span class="brandline">Segway</span>
-          <span class="txt">Video de lanzamiento de la Snarler AT10 y creación de contenido de producto en locación.</span>
-          <span class="open">Ver galería</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-project="socialista" data-preview="video/socialista-01.mp4" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="img/socialista-04.webp" alt="" loading="lazy" style="object-position:50% 55%"><span class="count">7 fotos · 2 videos</span></span>
-        <span class="info">
-          <span class="role">Producción audiovisual</span>
-          <h3>Bera Socialista</h3>
-          <span class="brandline">Bera Motorcycles</span>
-          <span class="txt">Sesión de producto de la línea Socialista en los cerros de la ciudad y en calle, con fotografía y clips para redes.</span>
-          <span class="open">Ver galería</span>
-        </span>
-      </button>
-      <button class="card" type="button" data-project="pepsi" data-preview="video/pepsi-05.mp4" data-reveal="clip" aria-haspopup="dialog">
-        <span class="shot"><img src="img/v-pepsi-05.webp" alt="" loading="lazy" style="object-position:50% 30%"><span class="count">1 foto · 5 videos</span></span>
-        <span class="info">
-          <span class="role">Cobertura audiovisual</span>
-          <h3>Premios Pepsi</h3>
-          <span class="brandline">Cobertura de evento</span>
-          <span class="txt">Cobertura en video del evento, con cámara en mano y registro en el lugar.</span>
-          <span class="open">Ver galería</span>
-        </span>
-      </button>
-      <article class="card pending" data-reveal>
-        <span class="shot"><div class="soon">Material en camino</div></span>
-        <span class="info">
-          <span class="role">Coordinador de Producción</span>
-          <h3>Bera Super DT 250</h3>
-          <span class="brandline">Bera Motorcycles</span>
-          <span class="txt">Coordinación de la producción audiovisual del lanzamiento de producto.</span>
-          
-        </span>
-      </article>
-      <article class="card pending" data-reveal>
-        <span class="shot"><div class="soon">Material en camino</div></span>
-        <span class="info">
-          <span class="role">Coordinador Audiovisual</span>
-          <h3>Aniversario Bera</h3>
-          <span class="brandline">Bera</span>
-          <span class="txt">Cobertura audiovisual de la celebración corporativa.</span>
-          
-        </span>
-      </article>
-      <article class="card pending" data-reveal>
-        <span class="shot"><div class="soon">Material en camino</div></span>
-        <span class="info">
-          <span class="role">Productor Audiovisual</span>
-          <h3>Campañas de concientización</h3>
-          <span class="brandline">Bera</span>
-          <span class="txt">Producción de piezas de comunicación con enfoque corporativo y de seguridad.</span>
-          
-        </span>
-      </article>
-    </div>
-  </div>
-</section>
-
 <section id="experiencia">
   <div class="wrap">
     <h2 data-reveal>Experiencia</h2>
@@ -703,7 +756,7 @@
 
 <section class="about" id="perfil">
   <div class="wrap grid">
-    <div class="portrait" data-reveal="clip"><img id="portraitImg" src="img/brwave-06.webp" alt="Bramdon Aguilar en rodaje, con cámara en mano" loading="lazy"></div>
+    <div class="portrait" data-reveal="clip"><img id="portraitImg" src="img/bramdon.webp" alt="Retrato de Bramdon Aguilar" width="960" height="1200" loading="lazy" decoding="async"></div>
     <div>
       <h2 data-reveal>Sobre mí</h2>
       <p class="big" data-reveal>Formación en mercadeo, coordinación logística en set y ejecución de video comercial.</p>
@@ -847,7 +900,7 @@
   /* ---- Video de fondo: pausa si no se ve, respeta ahorro de datos y movimiento reducido ---- */
   (function () {
     const v = $('#heroVideo'), btn = $('#vctl'); if (!v) return;
-    const saver = navigator.connection && navigator.connection.saveData;
+    const cn = navigator.connection, saver = cn && (cn.saveData || /(^|-)2g|3g/.test(cn.effectiveType || ''));
     let userPaused = false;
     const icon = {
       pause: '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/></svg>',
@@ -883,9 +936,15 @@
         const r = portrait.parentElement.getBoundingClientRect();
         if (r.bottom > 0 && r.top < innerHeight) portrait.style.transform = 'translate3d(0,' + (((r.top + r.height / 2) - innerHeight / 2) * -0.08) + 'px,0)';
       }
-      let cur = -1;
-      secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < innerHeight * 0.4) cur = i; });
-      links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+    }
+    if ('IntersectionObserver' in window) {
+      const vis = new Map();
+      const io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { vis.set(e.target, e.isIntersecting); });
+        let cur = -1; secs.forEach(function (s, i) { if (vis.get(s)) cur = i; });
+        links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      secs.forEach(function (s) { if (s) io.observe(s); });
     }
     addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
     addEventListener('resize', frame); frame();
@@ -903,6 +962,7 @@
         if (p < 1) requestAnimationFrame(step);
       })(t0);
     }
+    if (!('IntersectionObserver' in window)) { $$('[data-reveal], [data-observe]').forEach(function (el) { el.classList.add('in'); }); return; }
     const io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
@@ -1003,10 +1063,15 @@
       })();
     }
     const exts = ['svg', 'png'];
-    $$('.brand[data-logo]').forEach(function (b) {
+    function loadLogos() { $$('.brand[data-logo]').forEach(function (b) {
       const box = $('.logo', b), urls = exts.map(e => 'img/logos/' + b.dataset.logo + '.' + e);
       tryUrls(urls, function (u) { const im = new Image(); im.alt = ''; im.src = u; box.insertBefore(im, box.firstChild); box.classList.add('has-img'); });
-    });
+    }); }
+    const brandsSec = $('#marcas');
+    if ('IntersectionObserver' in window && brandsSec) {
+      const ob = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { ob.disconnect(); loadLogos(); } }, { rootMargin: '600px 0px' });
+      ob.observe(brandsSec);
+    } else loadLogos();
 
     const CDN = ['https://cdn.jsdelivr.net/npm/simple-icons@11.14.0/icons/', 'https://cdn.jsdelivr.net/npm/simple-icons@9.21.0/icons/'];
     const TOOLS = [
@@ -1021,7 +1086,18 @@
       { n: 'Claude', k: 'claude', s: ['claude', 'anthropic'], c: '#D97757', m: 'Cl' },
       { n: 'Gemini', k: 'gemini', s: ['googlegemini'], c: '#8E75B2', m: 'Ge' }
     ];
-    const track = $('#marquee');
+    const track = $('#marquee'), found = {};
+    function resolveIcon(t, cb) {
+      if (found[t.k]) return found[t.k].then(cb);
+      found[t.k] = new Promise(function (res) {
+        const local = exts.map(e => 'img/tools/' + t.k + '.' + e);
+        tryUrls(local, function (u) { res({ img: u }); }, function () {
+          const cdn = []; t.s.forEach(function (s) { CDN.forEach(function (b) { cdn.push(b + s + '.svg'); }); });
+          tryUrls(cdn, function (u) { res({ mask: u }); }, function () { res(null); });
+        });
+      });
+      return found[t.k].then(cb);
+    }
     function build(hidden) {
       const frag = document.createDocumentFragment();
       TOOLS.forEach(function (t) {
@@ -1030,15 +1106,36 @@
         const mono = document.createElement('b'); mono.textContent = t.m; mono.style.setProperty('--c', t.c); ico.appendChild(mono);
         const label = document.createElement('span'); label.textContent = t.n;
         d.appendChild(ico); d.appendChild(label); frag.appendChild(d);
-        const local = exts.map(e => 'img/tools/' + t.k + '.' + e);
-        tryUrls(local, function (u) { ico.innerHTML = ''; const im = new Image(); im.alt = ''; im.src = u; ico.appendChild(im); }, function () {
-          const cdn = []; t.s.forEach(function (s) { CDN.forEach(function (b) { cdn.push(b + s + '.svg'); }); });
-          tryUrls(cdn, function (u) { ico.innerHTML = ''; const i = document.createElement('i'); i.style.setProperty('--c', t.c); i.style.setProperty('--m', 'url("' + u + '")'); ico.appendChild(i); });
+        resolveIcon(t, function (r) {
+          if (!r) return;
+          ico.innerHTML = '';
+          if (r.img) { const im = new Image(); im.alt = ''; im.decoding = 'async'; im.src = r.img; ico.appendChild(im); }
+          else { const i = document.createElement('i'); i.style.setProperty('--c', t.c); i.style.setProperty('--m', 'url("' + r.mask + '")'); ico.appendChild(i); }
         });
       });
       return frag;
     }
-    track.appendChild(build(false)); track.appendChild(build(true));
+    function start() { track.appendChild(build(false)); track.appendChild(build(true)); }
+    /* solo se buscan los íconos cuando la sección está cerca de la pantalla */
+    const toolsBox = track.closest('section') || track;
+    if ('IntersectionObserver' in window) {
+      const o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { o.disconnect(); start(); } }, { rootMargin: '600px 0px' });
+      o.observe(toolsBox);
+    } else start();
+  })();
+
+  /* ---- YouTube: portada ligera, el reproductor carga solo al tocar ---- */
+  (function () {
+    $$('.yt[data-yt]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.classList.contains('on')) return;
+        const f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0&modestbranding=1';
+        f.title = b.getAttribute('aria-label').replace('Reproducir: ', '');
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+        b.classList.add('on'); b.appendChild(f); f.focus();
+      });
+    });
   })();
 
   /* ---- Galería por proyecto + visor de fotos ---- */
