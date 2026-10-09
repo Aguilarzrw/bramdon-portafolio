@@ -126,6 +126,9 @@
   nav ul a { color: var(--mist); transition: color .3s; position: relative; padding: 6px 0; }
   nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--blue-soft); transform: scaleX(0); transform-origin: 0 50%; transition: transform .4s var(--ease); }
   nav ul a:hover, nav ul a.active { color: var(--white); }
+  nav ul a.nav-cta { color: #fff; background: var(--blue); padding: 10px 18px; font-family: var(--display); font-weight: 600; transition: background .3s, transform .3s var(--ease); }
+  nav ul a.nav-cta::after { display: none; }
+  nav ul a.nav-cta:hover { background: var(--blue-soft); transform: translateY(-1px); }
   nav ul a.active::after, nav ul a:hover::after { transform: scaleX(1); }
   .burger { display: none; width: 44px; height: 44px; margin-right: -10px; position: relative; }
   .burger span { position: absolute; left: 11px; right: 11px; height: 1.5px; background: var(--white); transition: transform .3s, opacity .3s; }
@@ -394,6 +397,7 @@
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#perfil">Perfil</a></li>
     <li><a href="#contacto">Contacto</a></li>
+    <li><a class="nav-cta" href="https://wa.me/584124824488?text=Hola%20Bramdon%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener">Contactar ya</a></li>
   </ul>
 </nav>
 
@@ -813,8 +817,8 @@
     <p class="sub" data-reveal>Creative Producer</p>
     <p class="avail" data-reveal>Disponible para proyectos audiovisuales y oportunidades profesionales, en Venezuela y en el exterior.</p>
     <div class="cta" data-reveal>
-      <a class="btn primary" href="https://wa.me/584124824488" target="_blank" rel="noopener" data-magnet>WhatsApp</a>
-      <a class="btn" href="tel:+584124824488" data-magnet>0412 482 4488</a>
+      <a class="btn primary" href="https://wa.me/584124824488?text=Hola%20Bramdon%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener" data-magnet>WhatsApp</a>
+      <a class="btn" href="https://wa.me/584124824488?text=Hola%20Bramdon%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte." target="_blank" rel="noopener" data-magnet>0412 482 4488</a>
       <a class="btn" href="https://instagram.com/Bramdon.mj" target="_blank" rel="noopener" data-magnet>@Bramdon.mj</a>
     </div>
     <footer>Maracay, Venezuela</footer>
@@ -915,7 +919,7 @@
   /* ---- Scroll: progreso, parallax, nav, volver arriba, sección activa ---- */
   (function () {
     const nav = $('#nav'), prog = $('#progress'), top = $('#totop'), media = $('#heroMedia'), content = $('#heroContent'), portrait = $('#portraitImg');
-    const links = $$('nav ul a'), secs = links.map(a => $(a.getAttribute('href')));
+    const links = $$('nav ul a[href^="#"]'), secs = links.map(a => $(a.getAttribute('href')));
     let last = 0, ticking = false;
     function frame() {
       ticking = false;
