@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bramdon Aguilar — Creative Producer | Producción audiovisual en Maracay</title>
+<title>Bramdon Aguilar · Creative Producer</title>
 <meta name="description" content="Bramdon Aguilar, Creative Producer y coordinador de producción audiovisual en Maracay, Venezuela. Lanzamientos, comerciales, eventos y contenido de marca para Bera, Maxglow, Miss Venezuela, Segway y más.">
 <meta name="author" content="Bramdon Aguilar">
 <meta name="keywords" content="Bramdon Aguilar, productor audiovisual, coordinador de producción audiovisual, creative producer, operador de cámara, editor de video, brand content, Maracay, Venezuela, agencia 360">
@@ -35,9 +35,11 @@
 <meta name="twitter:image:alt" content="Bramdon Aguilar, Creative Producer">
 
 <!-- Íconos y app -->
-<link rel="icon" href="favicon.ico" sizes="48x48">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16.png?v=2" type="image/png" sizes="16x16">
+<link rel="shortcut icon" href="favicon.ico?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="manifest" href="site.webmanifest">
 
 <!-- Datos estructurados para Google -->
@@ -801,6 +803,12 @@
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+  /* ---- Título de la pestaña ---- */
+  (function () {
+    const t = document.title;
+    document.addEventListener('visibilitychange', function () { document.title = document.hidden ? 'Sigue explorando · Bramdon Aguilar' : t; });
+  })();
 
   /* ---- Nombre: letra por letra ---- */
   (function () {
