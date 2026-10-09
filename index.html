@@ -217,23 +217,13 @@
   @media (max-width: 560px) { .brand-grid { grid-template-columns: 1fr; } }
 
 
-  /* ---------- YouTube ---------- */
-  .ytsec { margin-top: clamp(64px, 9vw, 110px); }
-  .ytsub { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 2.6vw, 1.9rem); letter-spacing: -.01em; }
-  .ytsec .lead { margin: 10px 0 28px; }
-  .ytgrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-  .yt { position: relative; display: block; overflow: hidden; background: var(--graphite); aspect-ratio: 16 / 9; grid-column: span 2; text-align: left; }
-  .yt:nth-child(-n+2) { grid-column: span 3; }
-  .yt img, .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; transition: transform .6s var(--ease), filter .4s; }
-  .yt:hover img { transform: scale(1.05); filter: brightness(.8); }
-  .yt .play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: rgba(29,63,168,.92); box-shadow: 0 0 0 0 rgba(58,95,208,.5); transition: transform .3s var(--ease); }
-  .yt .play::after { content: ""; position: absolute; left: 23px; top: 18px; border-left: 17px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
-  .yt:hover .play { transform: scale(1.12); }
-  .yt .ytt { position: absolute; left: 0; right: 0; bottom: 0; padding: 36px 14px 12px; font-family: var(--display); font-weight: 600; font-size: .92rem; background: linear-gradient(transparent, rgba(0,0,0,.85)); }
-  .yt.on .play, .yt.on .ytt { display: none; }
-  .ytlink { display: inline-block; margin-top: 24px; color: var(--blue-soft); font-family: var(--display); font-weight: 600; font-size: .9rem; }
-  .ytlink:hover { text-decoration: underline; }
-  @media (max-width: 760px) { .ytgrid { grid-template-columns: 1fr; } .yt, .yt:nth-child(-n+2) { grid-column: auto; } }
+  /* ---------- YouTube (tarjetas dentro de Proyectos) ---------- */
+  .card .shot .play { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: rgba(29,63,168,.92); transition: transform .3s var(--ease); z-index: 2; }
+  .card .shot .play::after { content: ""; position: absolute; left: 23px; top: 18px; border-left: 17px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+  .card:hover .shot .play { transform: scale(1.12); }
+  .card .shot .yt-badge { position: absolute; left: 12px; top: 12px; z-index: 2; padding: 4px 9px; background: rgba(0,0,0,.65); font-family: var(--display); font-weight: 600; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+  .ytframe { position: relative; aspect-ratio: 16 / 9; background: #000; }
+  .ytframe iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
   /* ---------- Proyectos ---------- */
   .brands { background: var(--ink); }
@@ -506,16 +496,56 @@
           <span class="open">Ver galería</span>
         </span>
       </button>
-      <article class="card pending" data-reveal>
-        <span class="shot"><div class="soon">Material en camino</div></span>
+      <button class="card" type="button" data-yt="KFjVJf0HnAU" data-title="Nuevo Carguero Pro 1000cc" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="https://i.ytimg.com/vi/KFjVJf0HnAU/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
+        <span class="info">
+          <span class="role">Producción audiovisual</span>
+          <h3>Nuevo Carguero Pro 1000cc</h3>
+          <span class="brandline">Bera Motorcycles · canal oficial</span>
+          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
+          <span class="open">Ver video</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-yt="HtKyGs_RLN0" data-title="Nueva BRF 2027" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="https://i.ytimg.com/vi/HtKyGs_RLN0/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
+        <span class="info">
+          <span class="role">Producción audiovisual</span>
+          <h3>Nueva BRF 2027</h3>
+          <span class="brandline">Bera Motorcycles · canal oficial</span>
+          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
+          <span class="open">Ver video</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-yt="yzuwvUXPXso" data-title="Nuevo motor 40 HP con Mando central" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="https://i.ytimg.com/vi/yzuwvUXPXso/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
+        <span class="info">
+          <span class="role">Producción audiovisual</span>
+          <h3>Nuevo motor 40 HP con Mando central</h3>
+          <span class="brandline">Bera Motorcycles · canal oficial</span>
+          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
+          <span class="open">Ver video</span>
+        </span>
+      </button>
+      <button class="card" type="button" data-yt="pfS3ru0CHT4" data-title="Nuevo Súper DT 250" data-role="Coordinador de Producción" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="https://i.ytimg.com/vi/pfS3ru0CHT4/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
         <span class="info">
           <span class="role">Coordinador de Producción</span>
-          <h3>Bera Super DT 250</h3>
-          <span class="brandline">Bera Motorcycles</span>
-          <span class="txt">Coordinación de la producción audiovisual del lanzamiento de producto.</span>
-          
+          <h3>Nuevo Súper DT 250</h3>
+          <span class="brandline">Bera Motorcycles · canal oficial</span>
+          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
+          <span class="open">Ver video</span>
         </span>
-      </article>
+      </button>
+      <button class="card" type="button" data-yt="yU9dTjg0qfw" data-title="Nueva BRX 200cc" data-role="Producción audiovisual" data-reveal="clip" aria-haspopup="dialog">
+        <span class="shot"><img src="https://i.ytimg.com/vi/yU9dTjg0qfw/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360"><span class="yt-badge">YouTube</span><span class="play" aria-hidden="true"></span></span>
+        <span class="info">
+          <span class="role">Producción audiovisual</span>
+          <h3>Nueva BRX 200cc</h3>
+          <span class="brandline">Bera Motorcycles · canal oficial</span>
+          <span class="txt">Video de lanzamiento publicado en el canal oficial de Bera Motorcycles.</span>
+          <span class="open">Ver video</span>
+        </span>
+      </button>
       <article class="card pending" data-reveal>
         <span class="shot"><div class="soon">Material en camino</div></span>
         <span class="info">
@@ -536,38 +566,6 @@
           
         </span>
       </article>
-    </div>
-    <div class="ytsec">
-      <h3 class="ytsub" data-reveal>Videos publicados en el canal oficial de Bera Motorcycles</h3>
-      <p class="lead" data-reveal>Producciones de lanzamiento que ya están al aire. Toca un video para reproducirlo aquí mismo.</p>
-      <div class="ytgrid" data-stagger>
-      <button class="yt" type="button" data-yt="KFjVJf0HnAU" aria-label="Reproducir: Nuevo Carguero Pro 1000cc" data-reveal>
-        <img src="https://i.ytimg.com/vi/KFjVJf0HnAU/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
-        <span class="play" aria-hidden="true"></span>
-        <span class="ytt">Nuevo Carguero Pro 1000cc</span>
-      </button>
-      <button class="yt" type="button" data-yt="HtKyGs_RLN0" aria-label="Reproducir: Nueva BRF 2027" data-reveal>
-        <img src="https://i.ytimg.com/vi/HtKyGs_RLN0/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
-        <span class="play" aria-hidden="true"></span>
-        <span class="ytt">Nueva BRF 2027</span>
-      </button>
-      <button class="yt" type="button" data-yt="yzuwvUXPXso" aria-label="Reproducir: Nuevo motor 40 HP con Mando central" data-reveal>
-        <img src="https://i.ytimg.com/vi/yzuwvUXPXso/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
-        <span class="play" aria-hidden="true"></span>
-        <span class="ytt">Nuevo motor 40 HP con Mando central</span>
-      </button>
-      <button class="yt" type="button" data-yt="pfS3ru0CHT4" aria-label="Reproducir: Nuevo Súper DT 250" data-reveal>
-        <img src="https://i.ytimg.com/vi/pfS3ru0CHT4/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
-        <span class="play" aria-hidden="true"></span>
-        <span class="ytt">Nuevo Súper DT 250</span>
-      </button>
-      <button class="yt" type="button" data-yt="yU9dTjg0qfw" aria-label="Reproducir: Nueva BRX 200cc" data-reveal>
-        <img src="https://i.ytimg.com/vi/yU9dTjg0qfw/hqdefault.jpg" alt="" loading="lazy" decoding="async" width="480" height="360">
-        <span class="play" aria-hidden="true"></span>
-        <span class="ytt">Nueva BRX 200cc</span>
-      </button>
-      </div>
-      <a class="ytlink" href="https://www.youtube.com/@beramotorcycles" target="_blank" rel="noopener">Ver el canal en YouTube ↗</a>
     </div>
   </div>
 </section>
@@ -1124,20 +1122,6 @@
     } else start();
   })();
 
-  /* ---- YouTube: portada ligera, el reproductor carga solo al tocar ---- */
-  (function () {
-    $$('.yt[data-yt]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        if (b.classList.contains('on')) return;
-        const f = document.createElement('iframe');
-        f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0&modestbranding=1';
-        f.title = b.getAttribute('aria-label').replace('Reproducir: ', '');
-        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
-        b.classList.add('on'); b.appendChild(f); f.focus();
-      });
-    });
-  })();
-
   /* ---- Galería por proyecto + visor de fotos ---- */
   (function () {
     const dlg = $('#gallery'), body = $('#gal-body'), lb = $('#lb'), lbImg = $('#lb-img'), lbC = $('#lb-c');
@@ -1183,6 +1167,13 @@
     });
     $('.dlg-close', dlg).addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    function openYt(b) {
+      lastBtn = b; photos = [];
+      $('#gal-title').textContent = b.dataset.title; $('#gal-meta').textContent = b.dataset.role + ' · Bera Motorcycles'; $('#gal-desc').textContent = 'Video publicado en el canal oficial de Bera Motorcycles.';
+      body.innerHTML = '<div class="ytframe"><iframe src="https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0&modestbranding=1" title="' + b.dataset.title + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><p style="margin-top:16px"><a href="https://www.youtube.com/watch?v=' + b.dataset.yt + '" target="_blank" rel="noopener" style="color:var(--blue-soft)">Ver en YouTube ↗</a></p>';
+      dlg.showModal(); document.body.classList.add('lock'); dlg.scrollTop = 0;
+    }
+    $$('button.card[data-yt]').forEach(function (b) { b.addEventListener('click', function () { openYt(b); }); });
     $$('button.card[data-project]').forEach(function (b) { b.addEventListener('click', function () { open(b.dataset.project, b); }); });
   })();
 </script>
