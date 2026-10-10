@@ -32,10 +32,10 @@ Los fondos alternan negro / `--ink`. La transición entre secciones usa `section
 - La galería (`<dialog id="gal">`) lee `PROJECTS[clave]` de `data/projects.js`.
 - `data-wide="1"` hace la tarjeta ancha solo cuando el filtro es «Todos».
 - Las tarjetas «Material en camino» son `article.card.pending` (sin galería).
-- La cuadrícula principal tiene 2 columnas: mantén el número de tarjetas **par** (más la ancha).
+- La cuadrícula principal tiene 2 columnas: cada tarjeta `wide` cuenta como 2; el total debe ser par.
 
 ## Marcas, habilidades y herramientas
-- Marcas: `li.brand[data-logo="slug"][data-cat]` en `#marcas`; `brands.js` construye con ellas el carrusel animado `#bmarq` (`.bcard`) y busca el logo en `assets/img/logos/slug.{svg,png,webp}`; si no existe, muestra un monograma.
+- Marcas: `li.brand[data-logo="slug"][data-cat]` en `#marcas`; `brands.js` construye con ellas el carrusel animado `#bmarq` (`.bcard`), que además se arrastra con mouse o dedo (con inercia) hacia cualquier lado y busca el logo en `assets/img/logos/slug.{svg,png,webp}`; si no existe, muestra un monograma.
 - Herramientas: lista `TOOLS` al inicio del bloque de logos en `brands.js`. Busca `assets/img/tools/clave.*`, luego `simple-icons` (jsDelivr) y por último un monograma.
 - Habilidades: bloques `.skill` en `#skills` (HTML).
 

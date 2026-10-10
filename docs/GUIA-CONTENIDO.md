@@ -21,7 +21,7 @@
    clave: { title, brand, role, desc, photos: ["assets/img/…"], videos: [{ src, poster, title }] }
    ```
    `desc` admite saltos de línea (`\n`) y se muestran tal cual. La clave debe ser igual a `data-project`.
-4. Mantén **par** el número de tarjetas de la cuadrícula principal (la primera es ancha).
+4. Mantén la cuadrícula cuadrada: cada tarjeta ancha (`wide`, ocupa 2 columnas) cuenta como 2; el total debe ser par.
 
 ## Editar un proyecto existente
 Cambia el título/texto corto en la tarjeta (`index.html`) **y** el título/descripción en `projects.js`. Los contadores («5 fotos · 2 videos») están escritos a mano en la tarjeta.
@@ -29,8 +29,8 @@ Cambia el título/texto corto en la tarjeta (`index.html`) **y** el título/desc
 ## Quitar un proyecto
 Borra la tarjeta en `index.html` y su entrada en `projects.js`. Los archivos de `assets/` pueden quedarse o borrarse si nadie más los usa (`grep -r nombre.webp .`).
 
-## Publicar un «Próximo proyecto»
-Pasa de `article.card.pending` (sección «Próximos proyectos») a una tarjeta normal como arriba.
+## Proyectos en camino
+La sección «Próximos proyectos» se retiró porque todos tienen material. Para volver a usarla, añade `<div class="soon-head">` y `<div class="cards soon-grid">` con `article.card.pending` (los estilos `.soon-*` siguen en el CSS).
 
 ## Videos de YouTube (carrusel «Videos de lanzamiento»)
 En `#videos` duplica un `<button class="vthumb">` con el ID del video (`data-yt`), `data-title`, `data-role` y la miniatura `https://i.ytimg.com/vi/ID/mqdefault.jpg`. Añade también el video en el JSON-LD (`VideoObject`) del `<head>` para SEO.
