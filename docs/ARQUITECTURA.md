@@ -12,7 +12,7 @@ Todos con `defer` (se ejecutan en orden, tras leer el HTML):
 
 1. `data/projects.js` define `window.PROJECTS`.
 2. `core.js` define las constantes globales `reduce` (movimiento reducido), `fine` (hay mouse) y los atajos `$` / `$$`.
-3. `hero.js`, `scroll.js`, `cursor.js`, `brands.js`, `videos.js`, `projects.js`: cada archivo son bloques independientes (IIFE) que buscan sus elementos en el DOM y se desactivan solos si no existen.
+3. `hero.js`, `scroll.js`, `cursor.js`, `slides.js` (portadas de proyectos solo-fotos que rotan cada 5 s con fundido; cambia `EVERY` o `MAX`), `brands.js`, `videos.js`, `projects.js`: cada archivo son bloques independientes (IIFE) que buscan sus elementos en el DOM y se desactivan solos si no existen.
 
 Si se agrega un script nuevo que use `$`, debe ir **después** de `core.js` en `index.html`.
 
