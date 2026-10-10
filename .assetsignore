@@ -6,3 +6,5 @@
 node_modules
 wrangler.jsonc
 README.md
+docs
+tools

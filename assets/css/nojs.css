@@ -1,0 +1,4 @@
+/* Respaldo sin JavaScript: se carga solo dentro de <noscript>.
+ * Muestra todo el contenido que normalmente se revela con animación. */
+.js [data-reveal], .js [data-reveal="clip"] .shot, .js .skill .sk-tags li { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+.js .skill .sk-ico path, .js .skill .sk-ico rect, .js .skill .sk-ico circle { stroke-dashoffset: 0 !important; }
