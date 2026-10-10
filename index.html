@@ -678,15 +678,19 @@
 </button>
 
 <dialog id="gallery" aria-labelledby="gal-title">
+  <div class="dlg-cover" id="gal-cover" aria-hidden="true"></div>
+  <button class="dlg-close" type="button" aria-label="Cerrar galería"><span>Cerrar</span><b aria-hidden="true">✕</b></button>
   <div class="dlg-inner">
-    <div class="dlg-head">
-      <div>
-        <h3 id="gal-title"></h3>
-        <p class="meta" id="gal-meta"></p>
+    <header class="dlg-head">
+      <span class="eyebrow">Proyecto</span>
+      <h3 id="gal-title" tabindex="-1"></h3>
+      <p class="meta" id="gal-meta"></p>
+      <ul class="dlg-chips" id="gal-chips" aria-label="Contenido del proyecto"></ul>
+      <div class="dlg-desc" id="gal-descbox">
         <p id="gal-desc"></p>
+        <button class="dlg-more" type="button" id="gal-more" hidden aria-expanded="false">Leer más</button>
       </div>
-      <button class="dlg-close" type="button" aria-label="Cerrar galería">✕</button>
-    </div>
+    </header>
     <div id="gal-body"></div>
   </div>
   <div class="lb" id="lb" role="dialog" aria-label="Foto ampliada">

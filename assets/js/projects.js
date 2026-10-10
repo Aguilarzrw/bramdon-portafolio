@@ -28,6 +28,14 @@
     const p = PROJECTS[id]; if (!p) return;
     lastBtn = btn; photos = p.photos;
     $('#gal-title').textContent = p.title; $('#gal-meta').textContent = p.role + ' · ' + p.brand; $('#gal-desc').textContent = p.desc;
+    const chips = [];
+    if (p.photos.length) chips.push(p.photos.length + (p.photos.length === 1 ? ' foto' : ' fotos'));
+    if (p.videos.length) chips.push(p.videos.length + (p.videos.length === 1 ? ' video' : ' videos'));
+    $('#gal-chips').innerHTML = chips.map(function (t) { return '<li>' + t + '</li>'; }).join('');
+    const cov = p.photos[0] || (p.videos[0] && p.videos[0].poster);
+    $('#gal-cover').style.setProperty('--cover', cov ? 'url("' + cov + '")' : 'none');
+    const box = $('#gal-descbox'), more = $('#gal-more'), long = p.desc.length > 420;
+    box.classList.toggle('clamp', long); more.hidden = !long; more.textContent = 'Leer más'; more.setAttribute('aria-expanded', 'false');
     let h = '';
     if (p.videos.length) {
       h += '<h4 class="dlg-sec">Videos</h4><div class="vids">';
@@ -42,9 +50,10 @@
       h += '</div>';
     }
     body.innerHTML = h;
-    dlg.showModal(); document.body.classList.add('lock'); dlg.scrollTop = 0;
+    dlg.showModal(); document.body.classList.add('lock'); dlg.scrollTop = 0; $('#gal-title').focus({ preventScroll: true });
   }
   body.addEventListener('click', function (e) { const im = e.target.closest('.gal img'); if (im) openLb(+im.dataset.i); });
+  $('#gal-more').addEventListener('click', function () { const b = $('#gal-descbox'), on = b.classList.toggle('clamp'); this.textContent = on ? 'Leer más' : 'Leer menos'; this.setAttribute('aria-expanded', String(!on)); });
   $('.x', lb).addEventListener('click', closeLb);
   $('.p', lb).addEventListener('click', function () { show(idx - 1); });
   $('.n', lb).addEventListener('click', function () { show(idx + 1); });

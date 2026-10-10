@@ -29,7 +29,7 @@ Los fondos alternan negro / `--ink`. La transición entre secciones usa `section
 
 ## Proyectos
 - Cada tarjeta es `button.card[data-project="clave"]` con `data-cats` (filtros) y `data-preview` (video que se reproduce al pasar el mouse).
-- La galería (`<dialog id="gal">`) lee `PROJECTS[clave]` de `data/projects.js`.
+- La galería (`<dialog id="gallery">`, panel a pantalla completa con portada difuminada, chips de contenido y descripción con «Leer más») lee `PROJECTS[clave]` de `data/projects.js`.
 - `data-wide="1"` hace la tarjeta ancha solo cuando el filtro es «Todos».
 - Las tarjetas «Material en camino» son `article.card.pending` (sin galería).
 - La cuadrícula principal tiene 2 columnas: cada tarjeta `wide` cuenta como 2; el total debe ser par.
