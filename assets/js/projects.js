@@ -33,7 +33,7 @@
     if (p.videos.length) chips.push(p.videos.length + (p.videos.length === 1 ? ' video' : ' videos'));
     $('#gal-chips').innerHTML = chips.map(function (t) { return '<li>' + t + '</li>'; }).join('');
     const cov = p.photos[0] || (p.videos[0] && p.videos[0].poster);
-    $('#gal-cover').style.setProperty('--cover', cov ? 'url("' + cov + '")' : 'none');
+    $('#gal-cover').style.setProperty('--cover', cov ? 'url("' + new URL(cov, document.baseURI).href + '")' : 'none');
     const box = $('#gal-descbox'), more = $('#gal-more'), long = p.desc.length > 420;
     box.classList.toggle('clamp', long); more.hidden = !long; more.textContent = 'Leer más'; more.setAttribute('aria-expanded', 'false');
     let h = '';
