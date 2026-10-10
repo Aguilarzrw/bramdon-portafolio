@@ -1,5 +1,5 @@
 /* Portadas que rotan: las tarjetas de proyectos que solo tienen fotos
- * (sin videos) cambian de foto cada 5 s con un fundido suave.
+ * (sin videos) cambian de foto cada 5 s con un empuje vertical suave.
  * Parte de Bramdon Aguilar · Portafolio. Ver docs/ARQUITECTURA.md */
 (function () {
   if (reduce || !window.PROJECTS) return;
@@ -16,12 +16,18 @@
       busy = true;
       const src = list[i = (i + 1) % list.length], pre = new Image();
       pre.onload = function () {
+        /* Empuje vertical: la foto nueva sube desde abajo y empuja a la actual hacia arriba */
         const top = document.createElement('img');
-        top.src = src; top.alt = ''; top.decoding = 'async'; top.className = 'xfade';
+        top.src = src; top.alt = ''; top.decoding = 'async'; top.className = 'vs-in';
         top.style.objectPosition = base.style.objectPosition;
         base.after(top);
-        requestAnimationFrame(function () { requestAnimationFrame(function () { top.classList.add('in'); }); });
-        setTimeout(function () { base.src = src; top.remove(); busy = false; }, 1300);
+        top.decode().catch(function () {}).then(function () {
+          requestAnimationFrame(function () { base.classList.add('vs-out'); top.classList.add('go'); });
+        });
+        setTimeout(function () {
+          base.style.transition = 'none'; base.src = src; base.classList.remove('vs-out');
+          top.remove(); void base.offsetWidth; base.style.transition = ''; busy = false;
+        }, 1500);
       };
       pre.onerror = function () { busy = false; };
       pre.src = src;

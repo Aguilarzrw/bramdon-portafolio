@@ -286,8 +286,9 @@ section > .wrap { position: relative; z-index: 1; }
 .card.wide .shot { aspect-ratio: 2.2 / 1; }
 .card .shot img, .card .shot video.pv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .card .shot img { transition: transform 1.2s var(--ease); }
-.card .shot img.xfade { opacity: 0; transition: opacity 1.2s ease; z-index: 1; }
-.card .shot img.xfade.in { opacity: 1; }
+.card .shot img.vs-in { transform: translateY(100%); transition: transform 1.3s cubic-bezier(.65, 0, .25, 1); z-index: 1; }
+.card .shot img.vs-in.go { transform: none; }
+.card .shot img.vs-out { transform: translateY(-38%); transition: transform 1.3s cubic-bezier(.65, 0, .25, 1); filter: brightness(.55); }
 .card .shot video.pv { opacity: 0; transition: opacity .5s; }
 .card .shot video.pv.on { opacity: 1; }
 button.card:hover .shot img, button.card:focus-visible .shot img { transform: scale(1.05); }
