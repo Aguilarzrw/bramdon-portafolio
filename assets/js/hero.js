@@ -44,7 +44,7 @@
 /* ---- Video de fondo: pausa si no se ve, respeta ahorro de datos y movimiento reducido ---- */
 (function () {
   const v = $('#heroVideo'), btn = $('#vctl'); if (!v) return;
-  const cn = navigator.connection, saver = cn && (cn.saveData || /(^|-)2g|3g/.test(cn.effectiveType || ''));
+  const cn = navigator.connection, saver = cn && (cn.saveData || /(^|-)2g/.test(cn.effectiveType || ''));
   let userPaused = false;
   const icon = {
     pause: '<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12"/><rect x="8.5" y="1" width="3.5" height="12"/></svg>',
@@ -55,6 +55,10 @@
   btn.addEventListener('click', function () { if (v.paused) { userPaused = false; v.play(); } else { userPaused = true; v.pause(); } sync(); });
   v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
   new IntersectionObserver(function (e) { if (userPaused) return; e[0].isIntersecting ? v.play().catch(function () {}) : v.pause(); }, { threshold: 0.05 }).observe($('#inicio'));
+  /* Si el navegador bloquea el autoplay (ahorro de batería, carga lenta), reintenta al tener datos y al primer toque/scroll */
+  function kick() { if (!userPaused && v.paused && !reduce && !saver) v.play().catch(function () {}); }
+  v.addEventListener('canplay', kick); v.addEventListener('loadeddata', kick);
+  ['touchstart', 'pointerdown', 'keydown', 'scroll'].forEach(function (ev) { addEventListener(ev, kick, { once: true, passive: true }); });
   v.addEventListener('error', function () { v.style.display = 'none'; var im = new Image(); im.src = 'assets/img/hero-poster-hd.webp'; im.alt = ''; $('#heroMedia').appendChild(im); });
 })();
 
