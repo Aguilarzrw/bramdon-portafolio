@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aguilarzrw.github.io/bramdon-portafolio/sitemap.xml
+Sitemap: https://bramdon-portafolio.reyaguilarwanh.workers.dev/sitemap.xml
