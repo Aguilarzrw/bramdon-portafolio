@@ -59,6 +59,6 @@
   function kick() { if (!userPaused && v.paused && !reduce && !saver) v.play().catch(function () {}); }
   v.addEventListener('canplay', kick); v.addEventListener('loadeddata', kick);
   ['touchstart', 'pointerdown', 'keydown', 'scroll'].forEach(function (ev) { addEventListener(ev, kick, { once: true, passive: true }); });
-  v.addEventListener('error', function () { v.style.display = 'none'; var im = new Image(); im.src = 'assets/img/hero-poster-hd.webp'; im.alt = ''; $('#heroMedia').appendChild(im); });
+  v.addEventListener('error', function () { v.style.display = 'none'; var im = new Image(); im.src = 'assets/img/hero-poster.webp'; im.alt = ''; $('#heroMedia').appendChild(im); });
 })();
 
