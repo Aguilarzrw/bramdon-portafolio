@@ -55,6 +55,6 @@
   btn.addEventListener('click', function () { if (v.paused) { userPaused = false; v.play(); } else { userPaused = true; v.pause(); } sync(); });
   v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
   new IntersectionObserver(function (e) { if (userPaused) return; e[0].isIntersecting ? v.play().catch(function () {}) : v.pause(); }, { threshold: 0.05 }).observe($('#inicio'));
-  v.addEventListener('error', function () { v.style.display = 'none'; var im = new Image(); im.src = 'assets/img/hero-poster.webp'; im.alt = ''; $('#heroMedia').appendChild(im); });
+  v.addEventListener('error', function () { v.style.display = 'none'; var im = new Image(); im.src = 'assets/img/hero-poster-hd.webp'; im.alt = ''; $('#heroMedia').appendChild(im); });
 })();
 
