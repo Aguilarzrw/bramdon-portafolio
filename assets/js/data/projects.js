@@ -268,5 +268,48 @@ window.PROJECTS = {
         "poster": "assets/img/v-bera-concientizacion-01.webp"
       }
     ]
+  },
+  "verabell": {
+    "title": "Verabell x Mundial 2026",
+    "brand": "Verabell",
+    "role": "Productor Audiovisual",
+    "desc": "Una pieza de temporada que conectó la marca con el momento futbolero del año: color, energía de tribuna y producto en el centro de la celebración.\n\n2 reels verticales para Instagram y TikTok · 2026.",
+    "photos": [],
+    "videos": [
+      {
+        "src": "assets/video/verabell-01.mp4",
+        "poster": "assets/img/v-verabell-01.webp"
+      },
+      {
+        "src": "assets/video/verabell-02.mp4",
+        "poster": "assets/img/v-verabell-02.webp"
+      }
+    ]
+  },
+  "maxglowmundial": {
+    "title": "Maxglow x Mundial 2026",
+    "brand": "Maxglow",
+    "role": "Coordinador Audiovisual",
+    "desc": "Contenido para redes que llevó la marca a la fiebre del Mundial: la emoción del partido, contada desde el estilo de Maxglow.\n\n1 reel vertical para Instagram y TikTok · 2026.",
+    "photos": [],
+    "videos": [
+      {
+        "src": "assets/video/maxglow-mundial-01.mp4",
+        "poster": "assets/img/v-maxglow-mundial-01.webp"
+      }
+    ]
+  },
+  "wapa": {
+    "title": "Wapa x Rosangela Belisario",
+    "brand": "Wapa",
+    "role": "Productor Audiovisual",
+    "desc": "La voz del llano detrás de una arepa con nombre propio. Grabamos con la cantante de música llanera Rosangela Belisario para presentar su arepa en El As de la Arepa, mezclando su personalidad, el sabor criollo y la identidad de Wapa.\n\n1 video en formato horizontal · 2026.",
+    "photos": [],
+    "videos": [
+      {
+        "src": "assets/video/wapa-01.mp4",
+        "poster": "assets/img/v-wapa-01.webp"
+      }
+    ]
   }
 };
