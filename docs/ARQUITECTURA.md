@@ -12,12 +12,12 @@ Todos con `defer` (se ejecutan en orden, tras leer el HTML):
 
 1. `data/projects.js` define `window.PROJECTS`.
 2. `core.js` define las constantes globales `reduce` (movimiento reducido), `fine` (hay mouse) y los atajos `$` / `$$`.
-3. `hero.js`, `scroll.js`, `cursor.js`, `slides.js` (portadas de proyectos solo-fotos que rotan cada 5 s con fundido; cambia `EVERY` o `MAX`), `brands.js`, `videos.js`, `projects.js`: cada archivo son bloques independientes (IIFE) que buscan sus elementos en el DOM y se desactivan solos si no existen.
+3. `player.js` (reproductor propio; debe ir justo después de `core.js` y antes de `projects.js`), `hero.js`, `scroll.js`, `cursor.js`, `slides.js` (portadas de proyectos solo-fotos que rotan cada 5 s con fundido; cambia `EVERY` o `MAX`), `brands.js`, `videos.js`, `projects.js`: cada archivo son bloques independientes (IIFE) que buscan sus elementos en el DOM y se desactivan solos si no existen.
 
 Si se agrega un script nuevo que use `$`, debe ir **después** de `core.js` en `index.html`.
 
 ## Secciones de `index.html` (en orden)
-`hero` → `metrics` → `#proyectos` → `#perfil` → `#experiencia` → `#marcas` → `#skills` → `#contacto`.
+`hero` → `metrics` → `#proyectos` → `#ia` → `#motion` → `#perfil` → `#experiencia` → `#marcas` → `#skills` → `#contacto`.
 Cada una tiene un comentario `<!-- ====== NOMBRE ====== -->` encima. El menú (`#menu`) enlaza por `id`.
 
 Los fondos alternan negro / `--ink`. La transición entre secciones usa `section + section::before` (degradado desde el color anterior, variable `--prev`) y `::after` (línea de luz). Si cambias el fondo de una sección, actualiza `--prev` de la siguiente (bloque «Transiciones entre secciones» del CSS).
@@ -45,3 +45,17 @@ Los fondos alternan negro / `--ink`. La transición entre secciones usa `section
 ## Despliegue
 - **GitHub Pages:** sirve la raíz de `main`. `.nojekyll` evita el procesado de Jekyll.
 - **Cloudflare:** `wrangler.jsonc` sirve la raíz como assets estáticos; `.assetsignore` deja fuera `.git`, `docs`, `tools`, etc. (límite de 25 MiB por archivo). `_headers` solo lo lee Cloudflare.
+
+
+## Reproductor de video (`player.js`)
+- Todo `<video data-player>` se envuelve en `.vp` con controles propios (botón grande, barra con buffer, tiempo, velocidad, volumen, pantalla completa, atajos de teclado). Los videos nuevos solo necesitan el atributo `data-player` y **no** llevar `controls`.
+- Videos creados dinámicamente (galería de proyectos) llaman a `window.enhanceVideos(contenedor)` tras insertarse.
+- Al reproducir uno se pausan los demás.
+
+## Secciones `#ia` y `#motion`
+- `#ia`: 4 tarjetas `.vcard` (video vertical + etiqueta «Generado con IA» + cliente opcional). Archivos `assets/video/ia-*.mp4` y posters `assets/img/v-ia-*.webp`.
+- `#motion`: un video (`motion-premiere.mp4`) con su texto. Mismo formato: H.264 720p vertical, `+faststart`.
+
+## Atmósfera visual
+- `body::before` es la capa fija con la textura (`bg-grunge.webp`); las secciones usan fondos translúcidos para dejarla ver.
+- Cada sección lleva un `.deco-layer` con iconos SVG (sprite `#i-*` al inicio del `<body>`); `.ht` añade trama halftone. La estatua (`estatua.webp`) vive en `.statue` dentro de `#contacto`.

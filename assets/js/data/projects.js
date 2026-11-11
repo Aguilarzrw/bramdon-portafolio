@@ -88,10 +88,6 @@ window.PROJECTS = {
         "poster": "assets/img/v-segway-05.webp"
       },
       {
-        "src": "assets/video/segway-02.mp4",
-        "poster": "assets/img/v-segway-02.webp"
-      },
-      {
         "src": "assets/video/segway-03.mp4",
         "poster": "assets/img/v-segway-03.webp"
       },

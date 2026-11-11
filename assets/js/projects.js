@@ -40,7 +40,7 @@
     if (p.videos.length) {
       h += '<h4 class="dlg-sec">Videos</h4><div class="vids">';
       p.videos.forEach(function (v) {
-        h += '<div class="' + (v.title ? 'big' : '') + '"><video controls playsinline preload="none" poster="' + v.poster + '" src="' + v.src + '"' + (v.title ? ' aria-label="' + v.title + '"' : '') + '></video></div>';
+        h += '<div class="' + (v.title ? 'big' : '') + '"><video data-player playsinline preload="none" poster="' + v.poster + '" src="' + v.src + '"' + (v.title ? ' aria-label="' + v.title + '"' : '') + '></video></div>';
       });
       h += '</div>';
     }
@@ -50,6 +50,7 @@
       h += '</div>';
     }
     body.innerHTML = h;
+    if (window.enhanceVideos) window.enhanceVideos(body);
     dlg.showModal(); document.body.classList.add('lock'); dlg.scrollTop = 0; $('#gal-title').focus({ preventScroll: true });
   }
   body.addEventListener('click', function (e) { const im = e.target.closest('.gal img'); if (im) openLb(+im.dataset.i); });
