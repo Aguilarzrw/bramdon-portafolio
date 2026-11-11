@@ -57,5 +57,5 @@ Los fondos alternan negro / `--ink`. La transición entre secciones usa `section
 - `#motion`: un video (`motion-premiere.mp4`) con su texto. Mismo formato: H.264 720p vertical, `+faststart`.
 
 ## Atmósfera visual
-- `body::before` es la capa fija con la textura (`bg-grunge.webp`); las secciones usan fondos translúcidos para dejarla ver.
-- Cada sección lleva un `.deco-layer` con iconos SVG (sprite `#i-*` al inicio del `<body>`); `.ht` añade trama halftone. La estatua (`estatua.webp`) vive en `.statue` dentro de `#contacto`.
+- `body::before` es la capa fija con la textura (`bg-halftone-port.webp` en vertical y `bg-halftone-land.webp` en horizontal, generadas por código para que no pierdan nitidez); las secciones usan fondos translúcidos para dejarla ver.
+- Cada sección lleva un `.deco-layer` con iconos SVG (sprite `#i-*` al inicio del `<body>`); La estatua (`estatua.webp`) vive en `.statue` dentro de `#contacto`.
