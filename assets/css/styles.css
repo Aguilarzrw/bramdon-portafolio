@@ -78,31 +78,31 @@ h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 4vw
 #totop:hover { border-color: var(--white); }
 
 /* ---------- Navegación ---------- */
-nav { position: fixed; inset: 0 0 auto 0; z-index: 30; padding: calc(env(safe-area-inset-top, 0px) + 16px) 24px 16px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,.85), transparent); font-family: var(--display); font-size: .82rem; font-weight: 500; transition: transform .45s var(--ease), background .3s; }
-nav.hide { transform: translateY(-110%); }
-nav.solid { background: rgba(0,0,0,.82); backdrop-filter: blur(10px); }
-nav .brand-mark { font-weight: 800; letter-spacing: .04em; }
-nav ul { display: flex; gap: 28px; list-style: none; }
-nav ul a { color: var(--mist); transition: color .3s; position: relative; padding: 6px 0; }
-nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--blue-soft); transform: scaleX(0); transform-origin: 0 50%; transition: transform .4s var(--ease); }
-nav ul a:hover, nav ul a.active { color: var(--white); }
-nav ul a.nav-cta { color: #fff; background: var(--blue); padding: 10px 18px; font-family: var(--display); font-weight: 600; transition: background .3s, transform .3s var(--ease); }
-nav ul a.nav-cta::after { display: none; }
-nav ul a.nav-cta:hover { background: var(--blue-soft); transform: translateY(-1px); }
-nav ul a.active::after, nav ul a:hover::after { transform: scaleX(1); }
+#nav { position: fixed; inset: 0 0 auto 0; z-index: 30; padding: calc(env(safe-area-inset-top, 0px) + 16px) 24px 16px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(0,0,0,.85), transparent); font-family: var(--display); font-size: .82rem; font-weight: 500; transition: transform .45s var(--ease), background .3s; }
+#nav.hide { transform: translateY(-110%); }
+#nav.solid { background: rgba(0,0,0,.82); backdrop-filter: blur(10px); }
+#nav .brand-mark { font-weight: 800; letter-spacing: .04em; }
+#nav ul { display: flex; gap: 28px; list-style: none; }
+#nav ul a { color: var(--mist); transition: color .3s; position: relative; padding: 6px 0; }
+#nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--blue-soft); transform: scaleX(0); transform-origin: 0 50%; transition: transform .4s var(--ease); }
+#nav ul a:hover, #nav ul a.active { color: var(--white); }
+#nav ul a.#nav-cta { color: #fff; background: var(--blue); padding: 10px 18px; font-family: var(--display); font-weight: 600; transition: background .3s, transform .3s var(--ease); }
+#nav ul a.#nav-cta::after { display: none; }
+#nav ul a.#nav-cta:hover { background: var(--blue-soft); transform: translateY(-1px); }
+#nav ul a.active::after, #nav ul a:hover::after { transform: scaleX(1); }
 .burger { display: none; width: 44px; height: 44px; margin-right: -10px; position: relative; }
 .burger span { position: absolute; left: 11px; right: 11px; height: 1.5px; background: var(--white); transition: transform .3s, opacity .3s; }
 .burger span:nth-child(1) { top: 16px; } .burger span:nth-child(2) { top: 22px; } .burger span:nth-child(3) { top: 28px; }
-nav.open .burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-nav.open .burger span:nth-child(2) { opacity: 0; }
-nav.open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+#nav.open .burger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+#nav.open .burger span:nth-child(2) { opacity: 0; }
+#nav.open .burger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 @media (max-width: 760px) {
   .burger { display: block; }
-  nav.hide { transform: none; }
-  nav ul { position: fixed; inset: 0; background: #000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; font-size: 1.5rem; font-weight: 700; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
-  nav.open ul { opacity: 1; visibility: visible; }
-  nav ul a { color: var(--white); }
-  nav .brand-mark, .burger { position: relative; z-index: 1; }
+  #nav.hide { transform: none; }
+  #nav ul { position: fixed; inset: 0; background: #000; flex-direction: column; justify-content: center; align-items: center; gap: 30px; font-size: 1.5rem; font-weight: 700; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+  #nav.open ul { opacity: 1; visibility: visible; }
+  #nav ul a { color: var(--white); }
+  #nav .brand-mark, .burger { position: relative; z-index: 1; }
 }
 
 /* ---------- Hero con video ---------- */
