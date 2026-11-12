@@ -582,3 +582,10 @@ body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
 @media (max-width: 1000px) { .vgrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px) { .mgrid { grid-template-columns: 1fr; } .mvid { max-width: 320px; } }
 @media (max-width: 480px) { .vgrid { grid-template-columns: 1fr; max-width: 340px; margin-inline: auto; } }
+
+
+/* Crédito discreto de desarrollo */
+.aguidev-credit { margin-top: 10px; color: rgba(255,255,255,.48); font-size: .72rem; letter-spacing: .08em; }
+.aguidev-credit a { color: rgba(255,255,255,.72); text-decoration: none; font-weight: 700; letter-spacing: .12em; transition: color .2s ease; }
+.aguidev-credit a:hover, .aguidev-credit a:focus-visible { color: #fff; }
+.aguidev-credit a span { color: #a78bfa; font-size: .9em; }
